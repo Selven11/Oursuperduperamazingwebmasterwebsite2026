@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Union County, NJ</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+  <link rel="stylesheet" href="core/styles.css">
+  <link rel="stylesheet" href="carousel/carousel.css">
+  <link rel="stylesheet" href="tile/tile.css">
+  <link rel="stylesheet" href="calendar/calendar.css">
+</head>
+<body>
+
+<div id="header-placeholder"></div>
+
+<section class="hero" id="top">
+  <div class="slide slide-1 active"></div>
+  <div class="slide slide-2"></div>
+  <div class="slide slide-3"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow" data-aos="fade-up" data-aos-delay="400">The Heart of New Jersey</p>
+    <h1 class="hero-title" data-aos="fade-up" data-aos-delay="600">Welcome to<br><span>Union County, NJ</span></h1>
+    <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="800">A vibrant community of 21 municipalities &mdash; where history, culture, and opportunity meet.</p>
+    <div class="hero-cta" data-aos="fade-up" data-aos-delay="1000">
+      <a href="#events" class="btn btn-primary">Upcoming Events</a>
+      <a href="#" class="btn btn-outline">I'm Bored</a>
+    </div>
+  </div>
+  <button class="slide-arrow prev" id="prevSlide">&#8249;</button>
+  <button class="slide-arrow next" id="nextSlide">&#8250;</button>
+</section>
+
+<section class="cal-events-section" id="events">
+  <p class="section-label">What's Happening</p>
+  <h2 class="section-title">Events &amp; Community Calendar</h2>
+  <div class="cal-events-grid">
+    <div class="calendar-card">
+      <div class="cal-header">
+        <button class="cal-nav-btn" id="prevMonth">&#8249;</button>
+        <h3 id="calTitle"></h3>
+        <button class="cal-nav-btn" id="nextMonth">&#8250;</button>
+      </div>
+      <div class="cal-body">
+        <div class="cal-grid" id="calGrid"></div>
+      </div>
+    </div>
+    <div class="events-panel" id="eventsPanel"></div>
+  </div>
+</section>
+
+<section class="tiles-section">
+  <div class="tiles-inner">
+    <div class="tiles-header">
+      <div>
+        <p class="section-label">Get Involved</p>
+        <h2 class="section-title">Community Programs</h2>
+      </div>
+    </div>
+    <div class="tiles-grid" id="tiles-grid"></div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script type="module">
+  import { injectComponents }  from './components/inject.js';
+  import { initCarousel }      from './carousel/carousel.js';
+  import { initCalendar }      from './calendar/calendar.js';
+  import { renderTiles }       from './tile/tile.js';
+  import { getEvents }         from './tile/data/items.js';
+
+  async function init() {
+    await injectComponents();
+    initCarousel();
+    initCalendar();
+
+    const grid = document.getElementById('tiles-grid');
+    if (grid) renderTiles(grid, getEvents().slice(0, 3));
+
+    AOS.init({ once: true, duration: 800 });
+  }
+
+  init();
+</script>
+</body>
+</html>
