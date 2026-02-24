@@ -1,9 +1,7 @@
 
-import { CONFIG } from '../core/config.js';
-
 export async function injectComponents() {
-  await inject(CONFIG.injection.headerPlaceholderId, CONFIG.injection.headerPath, 'header');
-  await inject(CONFIG.injection.footerPlaceholderId, CONFIG.injection.footerPath, 'footer');
+  await inject('header-placeholder', 'components/header.html', 'header');
+  await inject('footer-placeholder', 'components/footer.html', 'footer');
 }
 
 async function inject(placeholderId, path, label) {

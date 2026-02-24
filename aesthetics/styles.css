@@ -110,7 +110,7 @@ nav {
   color: var(--gold);
 }
 
-/* Buttons */
+
 .btn {
   padding: 14px 32px;
   border-radius: 4px;
@@ -151,7 +151,6 @@ nav {
   border-color: var(--white);
 }
 
-/* Section Styling */
 section {
   padding: 80px 40px;
 }
@@ -171,7 +170,6 @@ section {
   margin-bottom: 16px;
 }
 
-/* Tiles Section */
 .tiles-section {
   background: var(--navy);
   color: var(--white);

@@ -1,5 +1,5 @@
 
-import { getEvents } from '../tile/data/items.js';
+import { getEvents } from '../../../tile/data/items.js';
 import { MONTHS } from './constants.js';
 import { renderCalendarGrid, updateCalendarTitle } from './renderCalendar.js';
 import { buildEventMap, getMonthEvents } from './eventData.js';
