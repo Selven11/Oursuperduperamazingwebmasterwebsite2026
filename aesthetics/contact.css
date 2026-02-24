@@ -1,0 +1,140 @@
+:root {
+  --linen: #F2E8DD;
+  --oxford-navy: #003366;
+  --steel-blue: #2484C6;
+  --apricot-cream: #F0C682;
+  --olive-leaf: #496936;
+}
+
+.contact-main {
+  background: #F2E8DD;
+  padding: 140px 40px 80px;
+  min-height: 100vh;
+  font-family: 'Source Sans 3', sans-serif;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #003366;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.contact-card {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  max-width: 900px;
+  margin: 0 auto;
+  border-top: 6px solid #496936;
+}
+
+.card-title-green {
+  color: #496936;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.signup-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.accent-link {
+  color: #003366;
+  text-decoration: underline;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #003366;
+}
+
+.required {
+  color: #7a1f2e;
+  margin-left: 2px;
+}
+
+.dual-input {
+  display: flex;
+  gap: 12px;
+}
+
+.custom-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #CCCCCC;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  background: #ffffff;
+}
+
+.checkbox-group {
+  display: flex;
+  gap: 25px;
+  padding: 10px 0;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.btn-submit-green {
+  background: #496936;
+  color: #ffffff;
+  padding: 14px 60px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 30px auto 0;
+  display: block;
+  transition: background 0.2s;
+}
+
+.btn-submit-green:hover {
+  background: #3d582d;
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .dual-input {
+    flex-direction: column;
+  }
+
+  .contact-main {
+    padding: 100px 20px 60px;
+  }
+}
