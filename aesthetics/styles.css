@@ -21,6 +21,13 @@ body {
   font-family: 'Source Sans 3', sans-serif;
   background: var(--cream);
   color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }
 
 .nav-logo span,
