@@ -9,6 +9,11 @@
 
     <link rel="stylesheet" href="/aesthetics/styles.css">
     <link rel="stylesheet" href="/aesthetics/generate.css">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <!-- Swiper JS -->
+     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <style>
         body { padding-top: 72px; }
     </style>
@@ -17,17 +22,57 @@
 <body>
     <div id="header-placeholder"></div>
 
-    <main>
-        <div>more words</div>
-    </main>
+    <div id = "main1">
+        
+
+        <div id = "generateContainer">
+            
+            <div id="sliderContainer">
+                <div id = "slider1" class="sliders">
+                    <label for="age" class="sliderTitle"> Select Age:</label>
+                    <input type="range" id="age" min="0" max="40" value="0" step="10">
+                    <div id="ageRange" class="rangeOptions">
+                        <span>Youth</span>
+                        <span>Teen</span>
+                        <span>Young Adult</span>
+                        <span>Adult</span>
+                        <span>65+</span>
+                    </div>
+                </div>
+                <div id = "slider2" class="sliders">
+                    <label for="time" class="sliderTitle"> Select Time:</label>
+                    <input type="range" id="time" min="0" max="30" value="0" step="10">
+                    <div id="timeRange" class = "rangeOptions">
+                        <span>Today</span>
+                        <span>Tomorrow</span>
+                        <span>This Week</span>
+                        <span>Next Week</span>
+                    </div>     
+                </div>
+            </div>
+            <h1 id="boredLabel">Bored? Click Below!</h1>
+            <div id="generatebtn">Generate!</div>
+
+           
+                 
+        </div>
+
+
+
+
+    </div>
+
+    
 
     <div id="footer-placeholder"></div>
+
     
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
 <script type="module">
   import { injectComponents }  from '/components/inject.js';
+  
      injectComponents();
 
 </script>
