@@ -1,7 +1,7 @@
 
 export async function injectComponents() {
-  await inject('header-placeholder', 'components/header.html', 'header');
-  await inject('footer-placeholder', 'components/footer.html', 'footer');
+  await inject('header-placeholder', '/components/header.html', 'header');
+  await inject('footer-placeholder', '/components/footer.html', 'footer');
 }
 
 async function inject(placeholderId, path, label) {
