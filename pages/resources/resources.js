@@ -129,4 +129,49 @@ function renderEventList(events) {
 
 // Attach event listener to the search bar
 
+import { injectComponents } from '/components/inject.js';
+import { getEvents }        from '/tile/data/items.js';
 
+async function init() {
+  await injectComponents();
+
+  const events = getEvents();
+  renderEventList(events);
+
+  const searchInput = document.getElementById('search-input');
+  const eventsContainer = document.querySelector('.events');
+
+  function filterEvents(query) {
+    const lowerQuery = query.toLowerCase();
+    return events.filter(event => {
+      const eventData = `
+        ${event.title}
+        ${event.description}
+        ${event.category}
+        ${event.location}
+        ${event.type || ''}
+      `.toLowerCase();
+      return eventData.includes(lowerQuery);
+    });
+  }
+
+  function renderFilteredEvents(query) {
+    const filtered = filterEvents(query);
+    eventsContainer.innerHTML = '';
+    if (filtered.length === 0) {
+      eventsContainer.innerHTML = '<p>No events found.</p>';
+      return;
+    }
+    filtered.forEach(event => {
+      eventsContainer.appendChild(createEventListItem(event));
+    });
+  }
+
+  searchInput.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') {
+      renderFilteredEvents(searchInput.value);
+    }
+  });
+}
+
+init();

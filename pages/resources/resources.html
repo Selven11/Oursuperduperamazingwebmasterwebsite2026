@@ -6,7 +6,7 @@
    <link rel="stylesheet" href="/aesthetics/styles.css">
    <link rel="stylesheet" href="/aesthetics/tile.css">
     <link rel="stylesheet" href="/aesthetics/resources.css">
-   <script src="./resources.js" defer></script>
+   <script src="./resources.js" type="module"></script>
    <title>Document</title>
 </head>
 <body>
@@ -85,64 +85,5 @@
 
    <div id="footer-placeholder"></div>
    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-   <script type="module">
-  import { injectComponents }  from '/components/inject.js';
-  import { renderTiles }       from '/tile/tile.js';
-  import { getEvents }         from '/tile/data/items.js';
-
-  async function init() {
-    await injectComponents();
-
-    const events =getEvents();
-    renderEventList(events)
-
-    const searchInput = document.getElementById('search-input');
-    const eventsContainer = document.querySelector('.events');
-
-    // Example: your events array
-    // const events = [ ... ];
-
-    function filterEvents(query) {
-    const lowerQuery = query.toLowerCase();
-
-    // Filter events by checking if any field contains the search query
-    return events.filter(event => {
-        // Concatenate all relevant fields into a single string
-        const eventData = `
-        ${event.title}
-        ${event.description}
-        ${event.category}
-        ${event.location}
-        ${event.type || ''}
-        `.toLowerCase();
-
-        return eventData.includes(lowerQuery);
-    });
-    }
-
-    // Function to render filtered events
-    function renderFilteredEvents(query) {
-    const filtered = filterEvents(query);
-    eventsContainer.innerHTML = ''; // clear previous results
-
-    if (filtered.length === 0) {
-        eventsContainer.innerHTML = '<p>No events found.</p>';
-        return;
-    }
-
-    filtered.forEach(event => {
-        eventsContainer.appendChild(createEventListItem(event));
-    });
-    }
-
-        searchInput.addEventListener('keyup', (e) => {
-        if (e.key === 'Enter') {
-            renderFilteredEvents(searchInput.value);
-        }
-        });
-  }
-
-  init();
-   </script>
 </body>
 </html>
