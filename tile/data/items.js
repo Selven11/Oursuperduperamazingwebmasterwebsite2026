@@ -9,7 +9,7 @@ export const ITEMS = [
     description: "Interactive storytime with songs and crafts for children ages 2-5.",
     location: "Westfield Memorial Library",
     category: "Education",
-    image: "images/hero1.jpg",
+    image: "/images/hero1.jpg",
   },
   {
     id: "volleyball-night-2026-02-06",
@@ -20,7 +20,7 @@ export const ITEMS = [
     description: "Join us for volleyball with all ages 2-88 at Summit recreational baseball field.",
     location: "Summit Recreation Center",
     category: "Sports",
-    image: "images/hero2.jpg",
+    image: "/images/hero2.jpg",
   },
   {
     id: "chess-club-2026-02-08",
@@ -31,7 +31,7 @@ export const ITEMS = [
     description: "Open play and casual tournaments for all skill levels. Boards provided.",
     location: "Rahway Recreation Center",
     category: "Recreation",
-    image: "images/hero3.jpg",
+    image: "/images/hero3.jpg",
   },
   {
     id: "valentines-dance-2026-02-14",
@@ -42,7 +42,7 @@ export const ITEMS = [
     description: "Celebrate Valentine's Day with live music, refreshments, and dancing for all ages.",
     location: "Kenilworth Veterans Center",
     category: "Community",
-    image: "images/hero1.jpg",
+    image: "/images/hero1.jpg",
   },
   {
     id: "movie-night-2026-02-14",
@@ -53,7 +53,7 @@ export const ITEMS = [
     description: "Bring blankets and enjoy a family-friendly film under the stars. Hot cocoa provided!",
     location: "Warinanco Park",
     category: "Recreation",
-    image: "images/hero2.jpg",
+    image: "/images/hero2.jpg",
   },
   {
     id: "art-exhibit-2026-02-16",
@@ -64,7 +64,7 @@ export const ITEMS = [
     description: "Annual showcase of local artists featuring paintings, sculptures, and photography.",
     location: "Union County Arts Center",
     category: "Arts",
-    image: "images/hero3.jpg",
+    image: "/images/hero3.jpg",
   },
   {
     id: "poetry-reading-2026-02-16",
@@ -75,7 +75,7 @@ export const ITEMS = [
     description: "Share your original poetry or listen to local writers at this cozy open-mic evening.",
     location: "Cranford Public Library",
     category: "Arts",
-    image: "images/hero1.jpg",
+    image: "/images/hero1.jpg",
   },
   {
     id: "town-hall-2026-02-17",
@@ -86,7 +86,7 @@ export const ITEMS = [
     description: "Quarterly community forum to discuss county initiatives and answer resident questions.",
     location: "County Administration Building",
     category: "Government",
-    image: "images/hero2.jpg",
+    image: "/images/hero2.jpg",
   },
   {
     id: "health-fair-2026-02-18",
@@ -97,7 +97,7 @@ export const ITEMS = [
     description: "Free health screenings, fitness demonstrations, and wellness resources for all residents.",
     location: "Elizabeth Community Center",
     category: "Health",
-    image: "images/hero3.jpg",
+    image: "/images/hero3.jpg",
   },
   {
     id: "blood-drive-2026-02-18",
@@ -108,7 +108,7 @@ export const ITEMS = [
     description: "Donate blood and help save lives. Walk-ins welcome, appointments encouraged.",
     location: "Westfield Community Center",
     category: "Health",
-    image: "images/hero1.jpg",
+    image: "/images/hero1.jpg",
   },
   {
     id: "coding-workshop-2026-02-20",
@@ -119,7 +119,7 @@ export const ITEMS = [
     description: "Intro to web development for teens 13-18. Laptops provided, no experience needed.",
     location: "Linden Public Library",
     category: "Education",
-    image: "images/hero2.jpg",
+    image: "/images/hero2.jpg",
   },
   {
     id: "cleanup-2026-02-23",
@@ -130,7 +130,7 @@ export const ITEMS = [
     description: "Community volunteers needed to help maintain our beautiful county parks.",
     location: "Warinanco Park",
     category: "Environment",
-    image: "images/hero3.jpg",
+    image: "/images/hero3.jpg",
   },
   {
     id: "farmers-market-2026-02-23",
@@ -141,7 +141,7 @@ export const ITEMS = [
     description: "Fresh local produce, baked goods, and artisan crafts from Union County vendors.",
     location: "Scotch Plains Town Square",
     category: "Community",
-    image: "images/hero1.jpg",
+    image: "/images/hero1.jpg",
   },
   {
     id: "5k-run-2026-02-23",
@@ -152,7 +152,7 @@ export const ITEMS = [
     description: "Lace up for our annual winter 5K through the scenic trails of Nomahegan Park.",
     location: "Nomahegan Park",
     category: "Sports",
-    image: "images/hero2.jpg",
+    image: "/images/hero2.jpg",
   },
   {
     id: "jazz-night-2026-02-25",
@@ -163,7 +163,7 @@ export const ITEMS = [
     description: "Local jazz trio performs standards and originals in an intimate library setting.",
     location: "Springfield Public Library",
     category: "Music",
-    image: "images/hero3.jpg",
+    image: "/images/hero3.jpg",
   },
   {
     id: "concert-2026-02-27",
@@ -174,7 +174,7 @@ export const ITEMS = [
     description: "Enjoy live performances from local musicians in our outdoor amphitheater.",
     location: "Echo Lake Park",
     category: "Music",
-    image: "images/hero1.jpg",
+    image: "/images/hero1.jpg",
   },
   {
     id: "senior-yoga-2026-02-10",
@@ -185,7 +185,7 @@ export const ITEMS = [
     description: "Gentle yoga for seniors. Mats and blocks provided. All levels welcome.",
     location: "Clark Community Center",
     category: "Health",
-    image: "images/hero2.jpg",
+    image: "/images/hero2.jpg",
   },
   {
     id: "stem-fair-2026-02-12",
@@ -196,7 +196,7 @@ export const ITEMS = [
     description: "County-wide student science and technology showcase. Judges and prizes for top projects.",
     location: "Kean University",
     category: "Education",
-    image: "images/hero3.jpg",
+    image: "/images/hero3.jpg",
   },
   {
     id: "trivia-night-2026-02-28",
@@ -207,7 +207,7 @@ export const ITEMS = [
     description: "Teams of up to 6 compete in themed trivia rounds. Prizes for top 3 teams!",
     location: "Roselle Park Community Center",
     category: "Recreation",
-    image: "images/hero1.jpg",
+    image: "/images/hero1.jpg",
   },
 
   // ── MARCH 2026 ──
@@ -220,7 +220,7 @@ export const ITEMS = [
     description: "Annual Union County St. Patrick's Day parade down Morris Avenue with floats, bands, and dancers.",
     location: "Morris Avenue, Union",
     category: "Community",
-    image: "images/hero2.jpg",
+    image: "/images/hero2.jpg",
   },
   {
     id: "garden-workshop-2026-03-10",
@@ -231,7 +231,7 @@ export const ITEMS = [
     description: "Learn what to plant this spring. Master Gardeners share tips on vegetables, herbs, and flowers.",
     location: "Trailside Nature Center",
     category: "Education",
-    image: "images/hero3.jpg",
+    image: "/images/hero3.jpg",
   },
   {
     id: "basketball-tourney-2026-03-14",
@@ -242,7 +242,7 @@ export const ITEMS = [
     description: "Open registration for youth and adult divisions. Trophies for division winners.",
     location: "Warinanco Park Courts",
     category: "Sports",
-    image: "images/hero1.jpg",
+    image: "/images/hero1.jpg",
   },
   {
     id: "womens-history-panel-2026-03-15",
@@ -253,7 +253,7 @@ export const ITEMS = [
     description: "A panel discussion celebrating women leaders in Union County government since 1857.",
     location: "County Administration Building",
     category: "Government",
-    image: "images/hero2.jpg",
+    image: "/images/hero2.jpg",
   },
   {
     id: "craft-fair-2026-03-15",
@@ -264,7 +264,7 @@ export const ITEMS = [
     description: "Handmade goods from 60+ local vendors. Food trucks and live music on-site.",
     location: "Oak Ridge Park",
     category: "Community",
-    image: "images/hero3.jpg",
+    image: "/images/hero3.jpg",
   },
   {
     id: "food-drive-2026-03-18",
@@ -275,7 +275,7 @@ export const ITEMS = [
     description: "Drop off non-perishable items at any county library branch through March 22.",
     location: "All County Library Branches",
     category: "Community",
-    image: "images/hero1.jpg",
+    image: "/images/hero1.jpg",
   },
   {
     id: "tech-talk-2026-03-20",
@@ -286,7 +286,7 @@ export const ITEMS = [
     description: "Keep your family safe online. Free workshop covers passwords, phishing, and privacy.",
     location: "Plainfield Public Library",
     category: "Education",
-    image: "images/hero2.jpg",
+    image: "/images/hero2.jpg",
   },
   {
     id: "spring-equinox-hike-2026-03-20",
@@ -297,7 +297,7 @@ export const ITEMS = [
     description: "Celebrate the first day of spring with a guided 3-mile hike through the Watchung Reservation.",
     location: "Watchung Reservation",
     category: "Recreation",
-    image: "images/hero3.jpg",
+    image: "/images/hero3.jpg",
   },
   {
     id: "blood-drive-mar-2026-03-22",
@@ -308,7 +308,7 @@ export const ITEMS = [
     description: "Walk-ins welcome. Every donation can save up to three lives.",
     location: "Cranford Community Center",
     category: "Health",
-    image: "images/hero1.jpg",
+    image: "/images/hero1.jpg",
   },
   {
     id: "comedy-night-2026-03-27",
@@ -319,7 +319,7 @@ export const ITEMS = [
     description: "Stand-up comedy show benefiting Union County youth programs. 18+ only.",
     location: "Union County Performing Arts Center",
     category: "Arts",
-    image: "images/hero2.jpg",
+    image: "/images/hero2.jpg",
   },
   {
     id: "easter-egg-hunt-2026-03-29",
@@ -330,7 +330,7 @@ export const ITEMS = [
     description: "Annual egg hunt for kids ages 2-10. Photos with the Easter Bunny, face painting, and prizes.",
     location: "Nomahegan Park",
     category: "Community",
-    image: "images/hero3.jpg",
+    image: "/images/hero3.jpg",
   },
 
   // ── APRIL 2026 ──
@@ -343,7 +343,7 @@ export const ITEMS = [
     description: "Join hundreds of volunteers for the county's biggest annual cleanup across 15 parks.",
     location: "Multiple Parks",
     category: "Environment",
-    image: "images/hero1.jpg",
+    image: "/images/hero1.jpg",
   },
   {
     id: "career-fair-2026-04-07",
@@ -354,7 +354,7 @@ export const ITEMS = [
     description: "Over 50 employers hiring on-site. Bring your résumé and dress professionally.",
     location: "Kean University",
     category: "Government",
-    image: "images/hero2.jpg",
+    image: "/images/hero2.jpg",
   },
   {
     id: "jazz-fest-2026-04-11",
@@ -365,7 +365,7 @@ export const ITEMS = [
     description: "All-afternoon open-air jazz festival with food vendors and family activities.",
     location: "Mindowaskin Park",
     category: "Music",
-    image: "images/hero3.jpg",
+    image: "/images/hero3.jpg",
   },
   {
     id: "bike-safety-2026-04-12",
@@ -376,7 +376,7 @@ export const ITEMS = [
     description: "Free helmet fittings, bike inspections, and an obstacle course for kids.",
     location: "Cedar Brook Park",
     category: "Recreation",
-    image: "images/hero1.jpg",
+    image: "/images/hero1.jpg",
   },
   {
     id: "arbor-day-planting-2026-04-17",
@@ -387,7 +387,7 @@ export const ITEMS = [
     description: "Help plant 100 native trees along the Rahway River greenway. Tools and gloves provided.",
     location: "Rahway River Park",
     category: "Environment",
-    image: "images/hero2.jpg",
+    image: "/images/hero2.jpg",
   },
   {
     id: "senior-prom-2026-04-18",
@@ -398,7 +398,7 @@ export const ITEMS = [
     description: "A glamorous evening for residents 60+. DJ, dancing, dinner, and prom court crowning.",
     location: "L'Affaire Banquet Hall",
     category: "Community",
-    image: "images/hero3.jpg",
+    image: "/images/hero3.jpg",
   },
   {
     id: "art-walk-2026-04-19",
@@ -409,7 +409,7 @@ export const ITEMS = [
     description: "Self-guided walking tour of galleries, studios, and pop-up exhibits in downtown Westfield.",
     location: "Downtown Westfield",
     category: "Arts",
-    image: "images/hero1.jpg",
+    image: "/images/hero1.jpg",
   },
   {
     id: "soccer-league-2026-04-22",
@@ -420,7 +420,7 @@ export const ITEMS = [
     description: "Opening day ceremonies and first matches of the spring recreational soccer season.",
     location: "Unami Park",
     category: "Sports",
-    image: "images/hero2.jpg",
+    image: "/images/hero2.jpg",
   },
   {
     id: "film-festival-2026-04-25",
@@ -431,7 +431,7 @@ export const ITEMS = [
     description: "Screening of 12 short films by local filmmakers, followed by a Q&A with directors.",
     location: "Union County Performing Arts Center",
     category: "Arts",
-    image: "images/hero3.jpg",
+    image: "/images/hero3.jpg",
   },
   {
     id: "fishing-derby-2026-04-26",
@@ -442,7 +442,7 @@ export const ITEMS = [
     description: "Catch-and-release fishing for ages 5-15. Rods available to borrow. Trophies awarded.",
     location: "Echo Lake Park",
     category: "Recreation",
-    image: "images/hero1.jpg",
+    image: "/images/hero1.jpg",
   },
   {
     id: "spring-concert-2026-04-30",
@@ -453,7 +453,7 @@ export const ITEMS = [
     description: "Union County Youth Chorus performs springtime classics and contemporary pieces.",
     location: "Westfield High School Auditorium",
     category: "Music",
-    image: "images/hero2.jpg",
+    image: "/images/hero2.jpg",
   },
 ];
 

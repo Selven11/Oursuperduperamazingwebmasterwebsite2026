@@ -93,23 +93,22 @@ function createEventListItem(event) {
   });
 
   item.innerHTML = `
-<div class="event-card">
-  <div class="event-date-block">
-    <div class="event-month">${new Date(event.date).toLocaleString('en-US', { month: 'short' })}</div>
-    <div class="event-day">${new Date(event.date).getDate()}</div>
-    <div class="event-dow">${new Date(event.date).toLocaleString('en-US', { weekday: 'short' }).toUpperCase()}</div>
-  </div>
+    <div class="tile-card">
+      <div class="tile-img">
+        <img src="${event.image || '/images/hero1.jpg'}" alt="${event.title}" loading="lazy">
+      </div>
 
-  <div class="event-info">
-    <div class="event-cat">${event.category}</div>
-    <h3 class="event-name">${event.title}</h3>
-    <p class="event-desc">${event.description}</p>
-    <div class="event-meta">
-      <span>🕒 ${event.time}</span>
-      <span>📍 ${event.location}</span>
+      <div class="tile-body">
+        <p class="tile-meta">${event.category || 'Event'} · ${event.type || 'Community'}</p>
+        <h3 class="tile-title">${event.title}</h3>
+        <p class="tile-desc">${event.description}</p>
+
+        <div class="tile-footer">
+          <span class="tile-location">${event.location ? `📍 ${event.location}` : ''}</span>
+          <a class="tile-link" href="${event.link || '#'}">Learn More →</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
   `;
 
   return item;
