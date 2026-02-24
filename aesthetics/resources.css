@@ -1,0 +1,250 @@
+/* ===============================
+   SEARCH + FILTER WRAPPER
+================================ */
+.search-filter {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-bar {
+    all: unset;
+    padding: 0.8rem;
+    background-color: lightgray;
+    width: 60vw;
+    border-radius: 999px;
+
+}
+
+/* ===============================
+   FILTER BAR
+================================ */
+.filters {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ===============================
+   DROPDOWN
+================================ */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-btn {
+  all: unset;
+  background: #AB5858;
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-weight: 500;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.dropdown-btn:hover {
+  background: #944949;
+}
+
+.dropdown-btn:active {
+  transform: scale(0.97);
+}
+
+/* ===============================
+   DROPDOWN CONTENT
+================================ */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  background: #1f1f1f;
+  min-width: 180px;
+  border-radius: 8px;
+  padding: 6px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  z-index: 100;
+}
+
+.dropdown-content.show {
+  display: block;
+  animation: dropdownFade 0.15s ease;
+}
+
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===============================
+   FILTER BUTTONS
+================================ */
+.filter {
+  all: unset;
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #eaeaea;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.filter:hover {
+  background: #2d2d2d;
+}
+
+.filter.active {
+  background: #AB5858;
+  color: white;
+}
+
+/* ===============================
+   APPLIED FILTERS (CHIPS)
+================================ */
+.applied-filters {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.applied-filter {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.applied-filter:hover {
+  background: #444;
+}
+
+.applied-filter:active {
+  transform: scale(0.95);
+}
+
+/* ===============================
+   EVENTS
+================================ */
+
+.events {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+    margin: 0 10vw;
+}
+
+
+/* ===============================
+   EVENT CARD
+================================ */
+.event-card {
+  display: flex;
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  border-left: 4px solid var(--navy);
+  box-shadow: 0 4px 20px rgba(13, 43, 85, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(13, 43, 85, 0.15);
+}
+
+/* ===============================
+   DATE BLOCK
+================================ */
+.event-date-block {
+  min-width: 72px;
+  background: var(--navy);
+  color: var(--white);
+  padding: 14px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-month {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.event-day {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.event-dow {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+/* ===============================
+   EVENT INFO
+================================ */
+.event-info {
+  flex: 1;
+  padding: 16px 20px;
+}
+
+.event-cat {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.event-name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.event-desc {
+  font-size: 0.83rem;
+  line-height: 1.5;
+  color: rgba(26, 26, 46, 0.65);
+  margin-bottom: 8px;
+}
+
+/* ===============================
+   META (TIME / LOCATION)
+================================ */
+.event-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(26, 26, 46, 0.5);
+}

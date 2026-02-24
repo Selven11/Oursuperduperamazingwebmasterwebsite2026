@@ -1,30 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/aesthetics/styles.css">
-    <title>Document</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/aesthetics/styles.css">
+   <link rel="stylesheet" href="/aesthetics/resources.css">
+   <script src="./resources.js" defer></script>
+   <title>Document</title>
 </head>
 <body>
-    <div id="header-placeholder"></div>
+   <div id="header-placeholder"></div>
 
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script type="module">
-    import { injectComponents }  from '/components/inject.js';
-    import { renderTiles }       from '/tile/tile.js';
-    import { getEvents }         from '/tile/data/items.js';
 
-    async function init() {
-        await injectComponents();
+   <div class="search-filter">
+       <form action="/search">
+           <input type="search" id="search-input" class="search-bar" placeholder="Search for your next activity!...">
+       </form>
 
-        const grid = document.getElementById('tiles-grid');
-        if (grid) renderTiles(grid, getEvents().slice(0, 3));
 
-        AOS.init({ once: true, duration: 800 });
-    }
 
-    init();
-    </script>
+
+<div class="filters">
+
+
+       <!-- Education -->
+       <div class="dropdown">
+           <button class="dropdown-btn">Education ▾</button>
+           <div class="dropdown-content">
+           <button class="filter" id="filter-education-schools">Schools</button>
+           <button class="filter" id="filter-education-summer-programs">Summer Programs</button>
+           <button class="filter" id="filter-education-tutoring">Tutoring</button>
+           </div>
+       </div>
+
+
+       <!-- Age -->
+       <div class="dropdown">
+           <button class="dropdown-btn">Age ▾</button>
+           <div class="dropdown-content">
+           <button class="filter" id="filter-age-65-plus">65+</button>
+           <button class="filter" id="filter-age-18-65">18-65</button>
+           <button class="filter" id="filter-age-12-18">12-18</button>
+           <button class="filter" id="filter-age-youth">Youth</button>
+           <button class="filter" id="filter-age-babies">Babies</button>
+           </div>
+       </div>
+
+
+       <!-- Recreation -->
+       <div class="dropdown">
+           <button class="dropdown-btn">Recreation ▾</button>
+           <div class="dropdown-content">
+           <button class="filter" id="filter-recreation-sports">Sports</button>
+           <button class="filter" id="filter-recreation-visual-arts">Visual Arts</button>
+           <button class="filter" id="filter-recreation-stem">STEM</button>
+           <button class="filter" id="filter-recreation-music">Music</button>
+           </div>
+       </div>
+
+
+       <!-- Hotlines -->
+       <div class="dropdown">
+           <button class="dropdown-btn">Hotlines ▾</button>
+           <div class="dropdown-content">
+           <button class="filter" id="filter-hotlines-aa">Alcoholics Anonymous</button>
+           <button class="filter" id="filter-hotlines-suicide">Suicide Helpline</button>
+           <button class="filter" id="filter-hotlines-lgbtq">LGBTQ</button>
+           <button class="filter" id="filter-hotlines-gambling">Gambling Addiction</button>
+           </div>
+       </div>
+
+
+       </div>
+   </div>
+
+
+   <div class="applied-filters"></div>
+
+   <div class="events"></div>
+   
+
+
+
+   <div id="footer-placeholder"></div>
+   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+   <script type="module">
+  import { injectComponents }  from '/components/inject.js';
+  import { renderTiles }       from '/tile/tile.js';
+  import { getEvents }         from '/tile/data/items.js';
+
+  async function init() {
+    await injectComponents();
+
+    const events =getEvents();
+    renderEventList(events);
+
+    const grid = document.getElementById('tiles-grid');
+    if (grid) renderTiles(grid, getEvents().slice(0, 3));
+
+    AOS.init({ once: true, duration: 800 });
+  }
+
+  init();
+   </script>
 </body>
 </html>
