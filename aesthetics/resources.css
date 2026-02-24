@@ -154,6 +154,7 @@
 .tile-card {
   background: #0d2b55;
   border: 0px;
+  max-width: 500px;
 }
 
 .tile-card:hover {

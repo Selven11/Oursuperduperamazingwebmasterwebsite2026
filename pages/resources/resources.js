@@ -95,7 +95,7 @@ function createEventListItem(event) {
   item.innerHTML = `
     <div class="tile-card">
       <div class="tile-img">
-        <img src="${event.image || '/images/hero1.jpg'}" alt="${event.title}" loading="lazy">
+        <img src="${event.image || 'images/hero1.jpg'}" alt="${event.title}" loading="lazy">
       </div>
 
       <div class="tile-body">
@@ -114,6 +114,8 @@ function createEventListItem(event) {
   return item;
 }
 
+
+
 function renderEventList(events) {
   const container = document.querySelector('.events');
   if (!container) return;
@@ -124,3 +126,7 @@ function renderEventList(events) {
     container.appendChild(createEventListItem(event));
   });
 }
+
+// Attach event listener to the search bar
+
+

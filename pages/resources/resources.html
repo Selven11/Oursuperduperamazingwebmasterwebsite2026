@@ -14,9 +14,9 @@
 
 
    <div class="search-filter">
-       <form action="/search">
+
            <input type="search" id="search-input" class="search-bar" placeholder="Search for your next activity!...">
-       </form>
+
 
 
 
@@ -94,12 +94,52 @@
     await injectComponents();
 
     const events =getEvents();
-    renderEventList(events);
+    renderEventList(events)
 
-    const grid = document.getElementById('tiles-grid');
-    if (grid) renderTiles(grid, getEvents().slice(0, 3));
+    const searchInput = document.getElementById('search-input');
+    const eventsContainer = document.querySelector('.events');
 
-    AOS.init({ once: true, duration: 800 });
+    // Example: your events array
+    // const events = [ ... ];
+
+    function filterEvents(query) {
+    const lowerQuery = query.toLowerCase();
+
+    // Filter events by checking if any field contains the search query
+    return events.filter(event => {
+        // Concatenate all relevant fields into a single string
+        const eventData = `
+        ${event.title}
+        ${event.description}
+        ${event.category}
+        ${event.location}
+        ${event.type || ''}
+        `.toLowerCase();
+
+        return eventData.includes(lowerQuery);
+    });
+    }
+
+    // Function to render filtered events
+    function renderFilteredEvents(query) {
+    const filtered = filterEvents(query);
+    eventsContainer.innerHTML = ''; // clear previous results
+
+    if (filtered.length === 0) {
+        eventsContainer.innerHTML = '<p>No events found.</p>';
+        return;
+    }
+
+    filtered.forEach(event => {
+        eventsContainer.appendChild(createEventListItem(event));
+    });
+    }
+
+        searchInput.addEventListener('keyup', (e) => {
+        if (e.key === 'Enter') {
+            renderFilteredEvents(searchInput.value);
+        }
+        });
   }
 
   init();
