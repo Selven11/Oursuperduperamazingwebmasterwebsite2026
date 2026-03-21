@@ -1,10 +1,17 @@
 <nav class="nav">
   <a class="nav-logo" href="/index.html">
-    <img src="https://upload.wikimedia.org/wikipedia/en/1/11/Seal_of_Union_County%2C_New_Jersey.png" 
-         alt="Seal" onerror="this.style.display='none'">
+    <img src="https://upload.wikimedia.org/wikipedia/en/1/11/Seal_of_Union_County%2C_New_Jersey.png"
+      alt="Seal" onerror="this.style.display='none'">
     <span>Union County, NJ</span>
   </a>
-  <ul class="nav-links">
+
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+    <span class="nav-toggle-bar"></span>
+    <span class="nav-toggle-bar"></span>
+    <span class="nav-toggle-bar"></span>
+  </button>
+
+  <ul class="nav-links" id="navLinks">
     <li><a href="#">Documentation</a></li>
     <li><a href="/pages/resources/resources.html">Resources</a></li>
     <li><a href="/pages/imbored/imbored.html">I'm Bored</a></li>
