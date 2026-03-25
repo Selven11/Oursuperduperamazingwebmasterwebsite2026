@@ -1,0 +1,87 @@
+
+
+#slideshow-container {
+  width: 100%;
+  margin-top: 2rem;
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+#roulette-viewport {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 1.5rem 0;
+
+
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+}
+
+
+#roulette-track {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  will-change: transform;
+  
+}
+
+
+
+.roulette-tile {
+  flex: 0 0 320px;
+  width: 320px;
+
+  
+  transition:
+    box-shadow 0.4s ease,
+    transform   0.4s ease,
+    outline     0.4s ease;
+  outline: 3px solid transparent;
+  border-radius: 14px; 
+}
+
+
+.roulette-tile.roulette-winner {
+  outline: 3px solid var(--gold, #f0a500);
+  box-shadow:
+    0 0 0 4px rgba(240, 165, 0, 0.2),
+    0 12px 40px rgba(240, 165, 0, 0.25);
+  transform: scale(1.03);
+  position: relative;
+  z-index: 2;
+}
+
+.roulette-tile.roulette-winner .tile-card:hover {
+  transform: none;
+}
+
+
+.roulette-error {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  width: 100%;
+  max-width: 480px;
+}

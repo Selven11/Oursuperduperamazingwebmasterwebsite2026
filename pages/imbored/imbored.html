@@ -9,6 +9,8 @@
 
     <link rel="stylesheet" href="/aesthetics/styles.css">
     <link rel="stylesheet" href="/aesthetics/generate.css">
+    <link rel="stylesheet" href="/aesthetics/tile.css">
+    <link rel="stylesheet" href="/pages/imbored/roulette.css">
 
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
@@ -107,10 +109,11 @@
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
 <script type="module">
-  import { injectComponents }  from '/components/inject.js';
-  
-     injectComponents();
+    import { injectComponents } from '/components/inject.js';
+    import { initGenerate } from '/pages/imbored/roulette.js';
 
+    injectComponents();
+    initGenerate();
 </script>
 
 </body>

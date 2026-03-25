@@ -42,6 +42,8 @@
 
 .tile-body {
   padding: 20px 22px 24px;
+  background: var(--navy);
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .tile-meta {
@@ -61,7 +63,7 @@
 
 .tile-desc {
   font-size: 0.83rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.82);
   line-height: 1.55;
   margin-bottom: 16px;
 }
@@ -74,7 +76,7 @@
 }
 
 .tile-location {
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.72);
   font-weight: 600;
 }
 

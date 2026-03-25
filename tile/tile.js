@@ -1,5 +1,5 @@
 
-function renderTile(data) {
+export function renderTile(data) {
   const tile = document.createElement('div');
   tile.className = 'tile-card';
   tile.appendChild(buildImageArea(data));
