@@ -164,13 +164,13 @@ function populateBoxes(data) {
   // Age Groups
   const ageGroups = extractAgeGroups(data);
   for (const age of ageGroups) {
-    boxSection.appendChild(createEl('span', 'tile-modal-age-badge', age));
+    boxSection.appendChild(createEl('span', 'tile-modal-chip tile-modal-age-badge', age));
   }
 
   // Recreation categories in boxes
   const recreationItems = extractRecreationItems(data);
   for (const item of recreationItems) {
-    boxSection.appendChild(createEl('span', 'tile-modal-age-badge tile-modal-recreation-box', item));
+    boxSection.appendChild(createEl('span', 'tile-modal-chip tile-modal-recreation-box', item));
   }
 
   if (boxSection.children.length > 0) {
