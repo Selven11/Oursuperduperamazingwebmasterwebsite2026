@@ -30,14 +30,14 @@
   <div class="bored-hero-overlay"></div>
 
   <div class="bored-hero-content">
-    <p class="bored-eyebrow">Here to entertain you</p>
+    <p class="bored-eyebrow" data-aos="fade-up" data-aos-delay="200">Here to entertain you</p>
 
-    <h1 class="bored-title">
+    <h1 class="bored-title" data-aos="fade-up" data-aos-delay="400">
       Bored? <br>
       <span>Let's Change That!</span>
     </h1>
 
-    <p class="bored-subtitle">
+    <p class="bored-subtitle" data-aos="fade-up" data-aos-delay="600">
       Welcome to the place where you can find events, play games, and relax.
     </p>
   </div>
@@ -52,7 +52,7 @@
             <div class="choosing">Sometimes the number of events in our lively county can be overwhelming. </div>
                 
             <div class="choosing">Let us choose one for you.</div>
-            
+
             <div id="sliderContainer">
                 <div id = "slider1" class="sliders">
                     <label for="age" class="sliderTitle"> Select Age:</label>
@@ -128,6 +128,8 @@
         async function init() {
             await injectComponents();
             initGenerate();
+
+            AOS.init({ once: true, duration: 800 });
         }
 
         init();
