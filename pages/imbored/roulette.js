@@ -1,7 +1,7 @@
 import { ITEMS } from '/tile/data/items.js';
 import { renderTile } from '/tile/tile.js';
 
-const TILE_WIDTH   = 380;
+const TILE_WIDTH   = 300;
 const TILE_GAP     = 20;
 const TILE_STEP    = TILE_WIDTH + TILE_GAP;
 const SPIN_DURATION = 3500;

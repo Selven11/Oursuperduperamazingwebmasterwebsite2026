@@ -52,7 +52,7 @@
 
 .roulette-tile {
   flex: 0 0 380px;
-  width: 380px;
+  max-width: 300px;
   background: transparent;
   position: relative;
   z-index: 4;
