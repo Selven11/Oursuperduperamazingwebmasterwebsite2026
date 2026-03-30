@@ -78,4 +78,10 @@
         font-size:  clamp(20px, 3vw, 30px);
     }
 
+    .gameButton {
+        width: 100%;
+        font-size: clamp(11px, 3vw, 15px);
+        padding: 14px 20px;
+    }
+
 }
