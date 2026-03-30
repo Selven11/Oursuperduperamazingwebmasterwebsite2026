@@ -134,15 +134,22 @@ body {
     }
 
     .choosing {
-        font-size: clamp(5px, 3vw, 30px);
+        font-size: clamp(20px, 3vw, 30px);
     }
     .sliderTitle{
         font-size: clamp(5px, 3vw, 30px);
 
     }
 }
-
 }
+
+@media (max-width: 768px) {
+    .choosing {
+        font-size: clamp(20px, 3vw, 30px);
+    }  
+}
+
+
 .sliders{
     flex: 1 1 200px;
     height: 75px;
@@ -228,7 +235,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
     background-color: var(--steel-blue);
     font-family: 'Playfair Display', serif;
     font-size: 120%;
-    width: 30%;
+    width: 40%;
     padding: 1%;
     border-radius: 15px;
     background-color: rgba(201, 168, 76);
