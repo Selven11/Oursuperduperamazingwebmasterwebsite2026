@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Union County Word Search</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/aesthetics/styles.css">
+    <link rel="stylesheet" href="wordsearch.css" />
+</head>
+<body>
+    
+    
+    <div id="header-placeholder"></div>
+
+  <div class="page-wrapper">
+
+    <div class="site-title">Union County Word Search</div>
+
+    <ul class="word-list" id="wordList"></ul>
+
+    <div class="game-area">
+      <div class="grid" id="grid"></div>
+      <div class="sidebar">
+        <button class="enter-btn" id="enterBtn">ENTER</button>
+        <button class="clear-btn" id="clearBtn">CLEAR</button>
+      </div>
+    </div>
+
+    <p class="hint" id="hint"></p>
+
+    <div id="thank-you-modal">
+        <div class="modal-box">
+            <button id="modal-close">&times;</button>
+            <p>Congrats! <br> Thank you for playing!</p>
+        </div>
+    </div>
+
+  </div>
+
+  <script src="wordsearch.js"></script>
+
+<script type="module">
+  import { injectComponents }  from '/components/inject.js';
+  
+     injectComponents();
+
+</script>
+</body>
+</html>
