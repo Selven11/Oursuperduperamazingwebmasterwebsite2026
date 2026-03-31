@@ -9,7 +9,7 @@ export const ITEMS = [
     location: "Westfield Memorial Library",
     municipality: "westfield",
     category: "Education",
-    image: "/images/hero1.jpg",
+    image: "/images/toddler-storytime.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -51,7 +51,7 @@ export const ITEMS = [
     location: "Summit Recreation Center",
     municipality: "summit",
     category: "Sports",
-    image: "/images/hero2.jpg",
+    image: "/images/volleyball-night.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -93,7 +93,7 @@ export const ITEMS = [
     location: "Rahway Recreation Center",
     municipality: "rahway",
     category: "Recreation",
-    image: "/images/hero3.jpg",
+    image: "/images/saturday-chess-club.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -135,7 +135,7 @@ export const ITEMS = [
     location: "Kenilworth Veterans Center",
     municipality: "kenilworth",
     category: "Community",
-    image: "/images/hero1.jpg",
+    image: "/images/valentine's-community-dance.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -177,7 +177,7 @@ export const ITEMS = [
     location: "Warinanco Park",
     municipality: "elizabeth",
     category: "Recreation",
-    image: "/images/hero2.jpg",
+    image: "/images/outdoor-movie-night.jpg",
     education: {
       schools: false,
       summerPrograms: false,
