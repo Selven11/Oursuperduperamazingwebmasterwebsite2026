@@ -21,6 +21,9 @@ const MUNICIPALITY_MAP = Object.fromEntries(
 );
 
 const MUNICIPALITY_OVERLAY_URL = '/images/unioncountymunicipalities1.svg';
+const OVERLAY_WIDTH = 1088;
+const OVERLAY_HEIGHT = 757.33331;
+let overlayDimensions = { width: OVERLAY_WIDTH, height: OVERLAY_HEIGHT };
 
 const MUNICIPALITY_LABEL_ALIASES = {
   'new_providence': 'new-providence',
@@ -33,6 +36,8 @@ const MUNICIPALITY_LABEL_ALIASES = {
   'roselle-park': 'roselle-park',
   'scotch_plains': 'scotch-plains',
   'scotch-plains': 'scotch-plains',
+  'winfield1': 'winfield',
+  'winfield2': 'winfield',
 };
 
 // Panel emoji icons
@@ -180,37 +185,67 @@ function normalizeMunicipalityLabel(label) {
 
 async function injectMunicipalityRegionsFromOverlay(svgRoot) {
   const response = await fetch(MUNICIPALITY_OVERLAY_URL);
-  if (!response.ok) {
-    throw new Error(`Failed to load municipality overlay: ${response.status}`);
-  }
+  if (!response.ok) throw new Error(`Failed to load municipality overlay: ${response.status}`);
 
   const svgText = await response.text();
   const parsed = new DOMParser().parseFromString(svgText, 'image/svg+xml');
-  const sourcePaths = [...parsed.querySelectorAll('path')];
+  const parseError = parsed.querySelector('parsererror');
+  if (parseError) throw new Error('Failed to parse municipality overlay SVG.');
+
+  const sourceSvg = parsed.querySelector('svg');
+  if (!sourceSvg) throw new Error('No SVG root found in municipality overlay.');
+
+  const sourceViewBox = sourceSvg.getAttribute('viewBox');
+  if (sourceViewBox) {
+    svgRoot.setAttribute('viewBox', sourceViewBox);
+    const [, , width, height] = sourceViewBox.split(/\s+/).map(Number);
+    if (Number.isFinite(width) && Number.isFinite(height)) {
+      overlayDimensions = { width, height };
+    }
+  }
+
   const svgNS = 'http://www.w3.org/2000/svg';
+  const sourceLayer = sourceSvg.querySelector('#g8') || sourceSvg;
+  const clonedLayer = sourceLayer.cloneNode(true);
+  svgRoot.appendChild(clonedLayer);
+
+  const sourceImage = svgRoot.querySelector('image');
+  if (sourceImage) {
+    sourceImage.removeAttribute('style');
+    sourceImage.setAttribute('class', 'map-base-image');
+    sourceImage.setAttribute('pointer-events', 'none');
+  }
+
   const inkscapeNS = 'http://www.inkscape.org/namespaces/inkscape';
 
-  sourcePaths.forEach(sourcePath => {
-    const label = sourcePath.getAttributeNS(inkscapeNS, 'label')
-      || sourcePath.getAttribute('inkscape:label')
+  [...svgRoot.querySelectorAll('path')].forEach(path => {
+    const label = path.getAttributeNS(inkscapeNS, 'label')
+      || path.getAttribute('inkscape:label')
       || '';
-    const d = sourcePath.getAttribute('d');
-    if (!label || !d) return;
+
+    path.removeAttribute('style');
+    path.removeAttribute('fill');
+    path.removeAttribute('stroke');
+    path.removeAttribute('stroke-width');
+    path.setAttribute('fill', 'transparent');
+    path.setAttribute('stroke', 'transparent');
+    path.setAttribute('pointer-events', 'none');
 
     const key = normalizeMunicipalityLabel(label);
     const muni = MUNICIPALITY_MAP[key];
     if (!muni) return;
 
-    const path = document.createElementNS(svgNS, 'path');
-    path.setAttribute('d', d);
     path.setAttribute('class', 'map-region');
     path.setAttribute('data-municipality-key', key);
     path.setAttribute('role', 'button');
     path.setAttribute('tabindex', '0');
     path.setAttribute('aria-label', `${muni.name} — click to view events`);
     path.setAttribute('aria-pressed', 'false');
-    svgRoot.appendChild(path);
+    path.setAttribute('pointer-events', 'all');
   });
+
+  const fallbackImg = document.getElementById('union-county-map');
+  if (fallbackImg) fallbackImg.hidden = true;
 }
 
 // ── Build SVG Overlay ─────────────────────────────────────
@@ -231,8 +266,8 @@ async function initializeMapSVG() {
     g.setAttribute('tabindex', '0');
     g.setAttribute('aria-label', marker.label);
 
-    const cx = (marker.x / 100) * 1088;
-    const cy = (marker.y / 100) * 757;
+    const cx = (marker.x / 100) * overlayDimensions.width;
+    const cy = (marker.y / 100) * overlayDimensions.height;
 
     // Shadow
     const shadow = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
