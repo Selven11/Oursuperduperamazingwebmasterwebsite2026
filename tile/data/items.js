@@ -1742,7 +1742,7 @@ export const ITEMS = [
   location: "Mountainside, NJ",
   municipality: "mountainside",
   category: "Recreation",
-  image: "/images/watchung.jpg",
+  image: "/images/watchung-reservation.jpg",
   education: {
     schools: false,
     summerPrograms: false,
