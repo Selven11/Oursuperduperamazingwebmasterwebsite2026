@@ -1,0 +1,423 @@
+
+/* ── Page Header ─────────────────────────────────────────── */
+.muni-page-header {
+  padding: 3.5rem 2rem 2rem;
+  text-align: center;
+}
+
+.muni-page-title {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 700;
+  color: var(--color-text, #1a1a1a);
+  margin: 0 0 0.4rem;
+  letter-spacing: -0.02em;
+}
+
+.muni-page-subtitle {
+  font-size: 1rem;
+  color: var(--color-text-muted, #666);
+  margin: 0;
+}
+
+/* ── Overall Layout ──────────────────────────────────────── */
+.municipalities-main {
+  min-height: calc(100vh - 120px);
+  padding-top: 1.5rem;
+  padding-bottom: 3rem;
+}
+
+.municipalities-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 0;
+  height: calc(100vh - 300px);
+  min-height: 540px;
+  max-height: 820px;
+  margin: 0 2rem 0 2rem;
+  border: 1px solid var(--color-border, #e0e0e0);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  background: var(--color-surface, #fff);
+}
+
+/* ── Map Section ─────────────────────────────────────────── */
+.map-section {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg-subtle, #f8f8f6);
+  border-right: 1px solid var(--color-border, #e0e0e0);
+  overflow: hidden;
+}
+
+.map-shell {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+}
+
+.county-map-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none; /* SVG handles all interactions */
+  border-radius: 6px;
+}
+
+/* The SVG sits exactly on top of the image */
+.map-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  cursor: pointer;
+}
+
+/* ── SVG Municipality Regions ────────────────────────────── */
+.map-region {
+  cursor: pointer;
+  outline: none;
+}
+
+.map-region path {
+  fill: transparent;
+  stroke: transparent;
+  stroke-width: 2;
+  stroke-linejoin: round;
+  transition: fill 0.15s ease, stroke 0.15s ease;
+}
+
+.map-region:hover path,
+.map-region:focus-visible path {
+  fill: rgba(255, 210, 50, 0.28);
+  stroke: #d4a000;
+  stroke-width: 2.5;
+}
+
+.map-region.is-active path {
+  fill: rgba(220, 80, 30, 0.22);
+  stroke: #c04010;
+  stroke-width: 3;
+}
+
+.map-region:focus-visible {
+  outline: none; /* Handled via path stroke */
+}
+
+/* ── County Marker Pins ──────────────────────────────────── */
+.county-marker {
+  cursor: pointer;
+  outline: none;
+}
+
+.marker-pin-circle {
+  fill: var(--color-accent, #2563eb);
+  stroke: #fff;
+  stroke-width: 1.5;
+  transition: r 0.15s ease, fill 0.15s ease;
+}
+
+.county-marker:hover .marker-pin-circle,
+.county-marker:focus-visible .marker-pin-circle {
+  fill: #1d4ed8;
+  r: 9;
+}
+
+.marker-pin-icon {
+  font-size: 10px;
+  text-anchor: middle;
+  dominant-baseline: central;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ── Marker Tooltip ──────────────────────────────────────── */
+.marker-tooltip {
+  position: absolute;
+  background: #fff;
+  border: 1px solid var(--color-border, #e0e0e0);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  max-width: 220px;
+  z-index: 20;
+  pointer-events: none;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  transition: opacity 0.15s ease;
+}
+
+.marker-tooltip[hidden] {
+  display: none;
+}
+
+.marker-tooltip-title {
+  font-weight: 700;
+  color: var(--color-text, #1a1a1a);
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+}
+
+.marker-tooltip-desc {
+  color: var(--color-text-muted, #555);
+  margin-bottom: 0.5rem;
+}
+
+.marker-tooltip-link {
+  color: var(--color-accent, #2563eb);
+  text-decoration: none;
+  font-weight: 600;
+  pointer-events: all;
+  font-size: 0.8rem;
+}
+
+.marker-tooltip-link:hover {
+  text-decoration: underline;
+}
+
+/* ── Map Legend ──────────────────────────────────────────── */
+.map-legend {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem 1.25rem;
+  background: var(--color-bg, #fff);
+  border-top: 1px solid var(--color-border, #e0e0e0);
+  font-size: 0.78rem;
+  color: var(--color-text-muted, #666);
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.legend-swatch {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  background: rgba(255, 210, 50, 0.35);
+  border: 2px solid #d4a000;
+}
+
+.legend-pin {
+  font-size: 0.9rem;
+}
+
+.legend-divider {
+  color: var(--color-border, #ccc);
+}
+
+.legend-hint {
+  color: var(--color-text-muted, #888);
+  font-style: italic;
+  margin-left: auto;
+}
+
+/* ── Details Section ─────────────────────────────────────── */
+.details-section {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  background: var(--color-surface, #fff);
+}
+
+.details-inner {
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  flex: 1;
+}
+
+/* ── Municipality Header ─────────────────────────────────── */
+.municipality-header {
+  border-bottom: 1px solid var(--color-border, #ebebeb);
+  padding-bottom: 1rem;
+}
+
+
+
+.municipality-title {
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  font-weight: 700;
+  color: var(--color-text, #1a1a1a);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.municipality-website-link {
+  display: inline-block;
+  font-size: 0.82rem;
+  color: var(--color-accent, #2563eb);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.15s;
+  padding: 0.2rem 0;
+}
+
+.municipality-website-link:hover {
+  text-decoration: underline;
+  color: var(--color-accent-dark, #1d4ed8);
+}
+
+/* ── Events Section ──────────────────────────────────────── */
+.events-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.events-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.events-label[hidden] {
+  display: none;
+}
+
+.events-label-text {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted, #888);
+}
+
+.events-label-count {
+  font-size: 0.72rem;
+  background: var(--color-accent, #2563eb);
+  color: #fff;
+  border-radius: 99px;
+  padding: 0.1rem 0.5rem;
+  font-weight: 700;
+}
+
+/* Event tiles container — vertical stack */
+.municipality-event-tiles {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Ensure tiles fill the width in this context */
+.municipality-event-tiles .tile {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ── Empty State ─────────────────────────────────────────── */
+.municipality-empty-state {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--color-text-muted, #999);
+}
+
+.municipality-empty-state[hidden] {
+  display: none;
+}
+
+.empty-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.empty-message {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-text, #444);
+  margin: 0 0 0.35rem;
+}
+
+.empty-sub {
+  font-size: 0.82rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── Placeholder (before any selection) ─────────────────── */
+.details-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex: 1;
+  gap: 1rem;
+  color: var(--color-text-muted, #aaa);
+  padding: 2rem;
+}
+
+.details-placeholder[hidden] {
+  display: none;
+}
+
+.placeholder-map-icon {
+  font-size: 3rem;
+  opacity: 0.5;
+}
+
+.details-placeholder p {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  max-width: 220px;
+  margin: 0;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .municipalities-container {
+    grid-template-columns: 1fr;
+    height: auto;
+    max-height: none;
+    margin: 0 1rem;
+  }
+
+  .map-section {
+    border-right: none;
+    border-bottom: 1px solid var(--color-border, #e0e0e0);
+    height: clamp(300px, 55vw, 520px);
+  }
+
+  .details-section {
+    max-height: 480px;
+  }
+}
+
+@media (max-width: 640px) {
+  .muni-page-header {
+    padding: 1.5rem 1rem 0.75rem;
+  }
+
+  .municipalities-container {
+    margin: 0 0.5rem;
+    border-radius: 8px;
+  }
+
+  .map-section {
+    height: clamp(260px, 70vw, 380px);
+  }
+
+  .details-inner {
+    padding: 1.25rem 1rem;
+  }
+
+  .legend-hint {
+    display: none;
+  }
+}

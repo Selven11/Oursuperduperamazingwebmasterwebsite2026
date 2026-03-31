@@ -7,6 +7,7 @@ export const ITEMS = [
     time: "10:30 AM",
     description: "Interactive storytime with songs and crafts for children ages 2-5.",
     location: "Westfield Memorial Library",
+    municipality: "westfield",
     category: "Education",
     image: "/images/hero1.jpg",
     education: {
@@ -48,6 +49,7 @@ export const ITEMS = [
     time: "6:00 PM",
     description: "Join us for volleyball with all ages 2-88 at Summit recreational baseball field.",
     location: "Summit Recreation Center",
+    municipality: "summit",
     category: "Sports",
     image: "/images/hero2.jpg",
     education: {
@@ -89,6 +91,7 @@ export const ITEMS = [
     time: "1:00 PM",
     description: "Open play and casual tournaments for all skill levels. Boards provided.",
     location: "Rahway Recreation Center",
+    municipality: "rahway",
     category: "Recreation",
     image: "/images/hero3.jpg",
     education: {
@@ -130,6 +133,7 @@ export const ITEMS = [
     time: "7:00 PM",
     description: "Celebrate Valentine's Day with live music, refreshments, and dancing for all ages.",
     location: "Kenilworth Veterans Center",
+    municipality: "kenilworth",
     category: "Community",
     image: "/images/hero1.jpg",
     education: {
@@ -171,6 +175,7 @@ export const ITEMS = [
     time: "6:30 PM",
     description: "Bring blankets and enjoy a family-friendly film under the stars. Hot cocoa provided!",
     location: "Warinanco Park",
+    municipality: "elizabeth",
     category: "Recreation",
     image: "/images/hero2.jpg",
     education: {
@@ -212,6 +217,7 @@ export const ITEMS = [
     time: "10:00 AM",
     description: "Annual showcase of local artists featuring paintings, sculptures, and photography.",
     location: "Union County Arts Center",
+    municipality: "elizabeth",
     category: "Arts",
     image: "/images/hero3.jpg",
     education: {
@@ -253,6 +259,7 @@ export const ITEMS = [
     time: "6:30 PM",
     description: "Share your original poetry or listen to local writers at this cozy open-mic evening.",
     location: "Cranford Public Library",
+    municipality: "cranford",
     category: "Arts",
     image: "/images/hero1.jpg",
     education: {
@@ -294,6 +301,7 @@ export const ITEMS = [
     time: "7:00 PM",
     description: "Quarterly community forum to discuss county initiatives and answer resident questions.",
     location: "County Administration Building",
+    municipality: "elizabeth",
     category: "Government",
     image: "/images/hero2.jpg",
     education: {
@@ -335,6 +343,7 @@ export const ITEMS = [
     time: "9:00 AM",
     description: "Free health screenings, fitness demonstrations, and wellness resources for all residents.",
     location: "Elizabeth Community Center",
+    municipality: "elizabeth",
     category: "Health",
     image: "/images/hero3.jpg",
     education: {
@@ -376,6 +385,7 @@ export const ITEMS = [
     time: "11:00 AM",
     description: "Donate blood and help save lives. Walk-ins welcome, appointments encouraged.",
     location: "Westfield Community Center",
+    municipality: "westfield",
     category: "Health",
     image: "/images/hero1.jpg",
     education: {
@@ -417,6 +427,7 @@ export const ITEMS = [
     time: "4:00 PM",
     description: "Intro to web development for teens 13-18. Laptops provided, no experience needed.",
     location: "Linden Public Library",
+    municipality: "linden",
     category: "Education",
     image: "/images/hero2.jpg",
     education: {
@@ -458,6 +469,7 @@ export const ITEMS = [
     time: "8:00 AM",
     description: "Community volunteers needed to help maintain our beautiful county parks.",
     location: "Warinanco Park",
+    municipality: "elizabeth",
     category: "Environment",
     image: "/images/hero3.jpg",
     education: {
@@ -499,6 +511,7 @@ export const ITEMS = [
     time: "10:00 AM",
     description: "Fresh local produce, baked goods, and artisan crafts from Union County vendors.",
     location: "Scotch Plains Town Square",
+    municipality: "scotch-plains",
     category: "Community",
     image: "/images/hero1.jpg",
     education: {
@@ -540,6 +553,7 @@ export const ITEMS = [
     time: "9:00 AM",
     description: "Lace up for our annual winter 5K through the scenic trails of Nomahegan Park.",
     location: "Nomahegan Park",
+    municipality: "cranford",
     category: "Sports",
     image: "/images/hero2.jpg",
     education: {
@@ -581,6 +595,7 @@ export const ITEMS = [
     time: "7:00 PM",
     description: "Local jazz trio performs standards and originals in an intimate library setting.",
     location: "Springfield Public Library",
+    municipality: "springfield",
     category: "Music",
     image: "/images/hero3.jpg",
     education: {
@@ -622,6 +637,7 @@ export const ITEMS = [
     time: "7:30 PM",
     description: "Enjoy live performances from local musicians in our outdoor amphitheater.",
     location: "Echo Lake Park",
+    municipality: "westfield",
     category: "Music",
     image: "/images/hero1.jpg",
     education: {
@@ -663,6 +679,7 @@ export const ITEMS = [
     time: "9:00 AM",
     description: "Gentle yoga for seniors. Mats and blocks provided. All levels welcome.",
     location: "Clark Community Center",
+    municipality: "clark",
     category: "Health",
     image: "/images/hero2.jpg",
     education: {
@@ -704,6 +721,7 @@ export const ITEMS = [
     time: "3:30 PM",
     description: "County-wide student science and technology showcase. Judges and prizes for top projects.",
     location: "Kean University",
+    municipality: "union",
     category: "Education",
     image: "/images/hero3.jpg",
     education: {
@@ -745,6 +763,7 @@ export const ITEMS = [
     time: "7:00 PM",
     description: "Teams of up to 6 compete in themed trivia rounds. Prizes for top 3 teams!",
     location: "Roselle Park Community Center",
+    municipality: "roselle-park",
     category: "Recreation",
     image: "/images/hero1.jpg",
     education: {
@@ -788,6 +807,7 @@ export const ITEMS = [
     time: "1:00 PM",
     description: "Annual Union County St. Patrick's Day parade down Morris Avenue with floats, bands, and dancers.",
     location: "Morris Avenue, Union",
+    municipality: "union",
     category: "Community",
     image: "/images/hero2.jpg",
     education: {
@@ -829,6 +849,7 @@ export const ITEMS = [
     time: "10:00 AM",
     description: "Learn what to plant this spring. Master Gardeners share tips on vegetables, herbs, and flowers.",
     location: "Trailside Nature Center",
+    municipality: "mountainside",
     category: "Education",
     image: "/images/hero3.jpg",
     education: {
@@ -870,6 +891,7 @@ export const ITEMS = [
     time: "9:00 AM",
     description: "Open registration for youth and adult divisions. Trophies for division winners.",
     location: "Warinanco Park Courts",
+    municipality: "elizabeth",
     category: "Sports",
     image: "/images/hero1.jpg",
     education: {
@@ -911,6 +933,7 @@ export const ITEMS = [
     time: "2:00 PM",
     description: "A panel discussion celebrating women leaders in Union County government since 1857.",
     location: "County Administration Building",
+    municipality: "elizabeth",
     category: "Government",
     image: "/images/hero2.jpg",
     education: {
@@ -952,6 +975,7 @@ export const ITEMS = [
     time: "10:00 AM",
     description: "Handmade goods from 60+ local vendors. Food trucks and live music on-site.",
     location: "Oak Ridge Park",
+    municipality: "clark",
     category: "Community",
     image: "/images/hero3.jpg",
     education: {
@@ -993,6 +1017,7 @@ export const ITEMS = [
     time: "8:00 AM",
     description: "Drop off non-perishable items at any county library branch through March 22.",
     location: "All County Library Branches",
+    municipality: "elizabeth",
     category: "Community",
     image: "/images/hero1.jpg",
     education: {
@@ -1034,6 +1059,7 @@ export const ITEMS = [
     time: "6:30 PM",
     description: "Keep your family safe online. Free workshop covers passwords, phishing, and privacy.",
     location: "Plainfield Public Library",
+    municipality: "plainfield",
     category: "Education",
     image: "/images/hero2.jpg",
     education: {
@@ -1075,6 +1101,7 @@ export const ITEMS = [
     time: "10:00 AM",
     description: "Celebrate the first day of spring with a guided 3-mile hike through the Watchung Reservation.",
     location: "Watchung Reservation",
+    municipality: "mountainside",
     category: "Recreation",
     image: "/images/hero3.jpg",
     education: {
@@ -1116,6 +1143,7 @@ export const ITEMS = [
     time: "10:00 AM",
     description: "Walk-ins welcome. Every donation can save up to three lives.",
     location: "Cranford Community Center",
+    municipality: "cranford",
     category: "Health",
     image: "/images/hero1.jpg",
     education: {
@@ -1157,6 +1185,7 @@ export const ITEMS = [
     time: "8:00 PM",
     description: "Stand-up comedy show benefiting Union County youth programs. 18+ only.",
     location: "Union County Performing Arts Center",
+    municipality: "rahway",
     category: "Arts",
     image: "/images/hero2.jpg",
     education: {
@@ -1198,6 +1227,7 @@ export const ITEMS = [
     time: "11:00 AM",
     description: "Annual egg hunt for kids ages 2-10. Photos with the Easter Bunny, face painting, and prizes.",
     location: "Nomahegan Park",
+    municipality: "cranford",
     category: "Community",
     image: "/images/hero3.jpg",
     education: {
@@ -1241,6 +1271,7 @@ export const ITEMS = [
     time: "8:00 AM",
     description: "Join hundreds of volunteers for the county's biggest annual cleanup across 15 parks.",
     location: "Multiple Parks",
+    municipality: "elizabeth",
     category: "Environment",
     image: "/images/hero1.jpg",
     education: {
@@ -1282,6 +1313,7 @@ export const ITEMS = [
     time: "10:00 AM",
     description: "Over 50 employers hiring on-site. Bring your résumé and dress professionally.",
     location: "Kean University",
+    municipality: "union",
     category: "Government",
     image: "/images/hero2.jpg",
     education: {
@@ -1323,6 +1355,7 @@ export const ITEMS = [
     time: "3:00 PM",
     description: "All-afternoon open-air jazz festival with food vendors and family activities.",
     location: "Mindowaskin Park",
+    municipality: "westfield",
     category: "Music",
     image: "/images/hero3.jpg",
     education: {
@@ -1364,6 +1397,7 @@ export const ITEMS = [
     time: "10:00 AM",
     description: "Free helmet fittings, bike inspections, and an obstacle course for kids.",
     location: "Cedar Brook Park",
+    municipality: "clark",
     category: "Recreation",
     image: "/images/hero1.jpg",
     education: {
@@ -1405,6 +1439,7 @@ export const ITEMS = [
     time: "9:00 AM",
     description: "Help plant 100 native trees along the Rahway River greenway. Tools and gloves provided.",
     location: "Rahway River Park",
+    municipality: "rahway",
     category: "Environment",
     image: "/images/hero2.jpg",
     education: {
@@ -1446,6 +1481,7 @@ export const ITEMS = [
     time: "6:00 PM",
     description: "A glamorous evening for residents 60+. DJ, dancing, dinner, and prom court crowning.",
     location: "L'Affaire Banquet Hall",
+    municipality: "elizabeth",
     category: "Community",
     image: "/images/hero3.jpg",
     education: {
@@ -1487,6 +1523,7 @@ export const ITEMS = [
     time: "12:00 PM",
     description: "Self-guided walking tour of galleries, studios, and pop-up exhibits in downtown Westfield.",
     location: "Downtown Westfield",
+    municipality: "westfield",
     category: "Arts",
     image: "/images/hero1.jpg",
     education: {
@@ -1528,6 +1565,7 @@ export const ITEMS = [
     time: "5:00 PM",
     description: "Opening day ceremonies and first matches of the spring recreational soccer season.",
     location: "Unami Park",
+    municipality: "scotch-plains",
     category: "Sports",
     image: "/images/hero2.jpg",
     education: {
@@ -1569,6 +1607,7 @@ export const ITEMS = [
     time: "7:00 PM",
     description: "Screening of 12 short films by local filmmakers, followed by a Q&A with directors.",
     location: "Union County Performing Arts Center",
+    municipality: "rahway",
     category: "Arts",
     image: "/images/hero3.jpg",
     education: {
@@ -1610,6 +1649,7 @@ export const ITEMS = [
     time: "8:00 AM",
     description: "Catch-and-release fishing for ages 5-15. Rods available to borrow. Trophies awarded.",
     location: "Echo Lake Park",
+    municipality: "westfield",
     category: "Recreation",
     image: "/images/hero1.jpg",
     education: {
@@ -1651,6 +1691,7 @@ export const ITEMS = [
     time: "7:30 PM",
     description: "Union County Youth Chorus performs springtime classics and contemporary pieces.",
     location: "Westfield High School Auditorium",
+    municipality: "westfield",
     category: "Music",
     image: "/images/hero2.jpg",
     education: {
@@ -1699,6 +1740,7 @@ export const ITEMS = [
   time: "",
   description: "Large nature reserve in Union County with hiking trails, picnic areas, and outdoor recreation.",
   location: "Mountainside, NJ",
+  municipality: "mountainside",
   category: "Recreation",
   image: "/images/watchung.jpg",
   education: {
@@ -1740,6 +1782,7 @@ export const ITEMS = [
   time: "",
   description: "Environmental education center with exhibits, programs, and access to trails in Watchung Reservation.",
   location: "Mountainside, NJ",
+  municipality: "mountainside",
   category: "Education",
   image: "/images/trailside.jpg",
   education: {
@@ -1781,6 +1824,7 @@ export const ITEMS = [
   time: "24/7",
   description: "Confidential support for individuals struggling with alcohol addiction.",
   location: "United States",
+  municipality: "union",
   category: "Hotline",
   image: "/images/hotline.jpg",
   education: {
@@ -1822,6 +1866,7 @@ export const ITEMS = [
   time: "24/7",
   description: "Support and resources for individuals dealing with gambling addiction.",
   location: "United States",
+  municipality: "union",
   category: "Hotline",
   image: "/images/hotline.jpg",
   education: {
@@ -1863,6 +1908,7 @@ export const ITEMS = [
   time: "24/7",
   description: "Immediate support for mental health crises, emotional distress, or suicidal thoughts.",
   location: "United States",
+  municipality: "union",
   category: "Hotline",
   image: "/images/hotline.jpg",
   education: {
@@ -1904,6 +1950,7 @@ export const ITEMS = [
   time: "24/7",
   description: "Crisis support and resources specifically for LGBTQ+ youth.",
   location: "United States",
+  municipality: "union",
   category: "Hotline",
   image: "/images/hotline.jpg",
   education: {

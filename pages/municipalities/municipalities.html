@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Municipalities | Union County, NJ</title>
+
+  <link rel="stylesheet" href="../../aesthetics/styles.css">
+  <link rel="stylesheet" href="../../aesthetics/tile.css">
+  <link rel="stylesheet" href="../../aesthetics/tile-modal.css">
+  <link rel="stylesheet" href="./municipalities.css">
+</head>
+<body>
+  <div id="header-placeholder"></div>
+
+  <main class="municipalities-main">
+
+    <div class="muni-page-header">
+      <h1 class="muni-page-title">Explore Union County</h1>
+      <p class="muni-page-subtitle">Select any municipality to discover upcoming events and local resources.</p>
+    </div>
+
+    <div class="municipalities-container">
+
+      <!-- Left: Map Section -->
+      <div class="map-section">
+        <div class="map-shell">
+          <img
+            id="union-county-map"
+            src="/images/unioncountymunicipalities.png"
+            alt="Union County Municipality Map"
+            class="county-map-image"
+          >
+          <svg
+            id="map-overlay"
+            class="map-overlay"
+            viewBox="0 0 820 530"
+            preserveAspectRatio="xMidYMid meet"
+            aria-label="Interactive Union County map"
+            role="img"
+          >
+            <!-- Municipality regions injected by JS -->
+            <!-- County marker pins injected by JS -->
+          </svg>
+
+          <!-- Marker tooltip -->
+          <div id="marker-tooltip" class="marker-tooltip" hidden>
+            <div class="marker-tooltip-title"></div>
+            <div class="marker-tooltip-desc"></div>
+            <a class="marker-tooltip-link" href="#" target="_blank" rel="noopener noreferrer">Learn more →</a>
+          </div>
+        </div>
+
+        <div class="map-legend">
+          <div class="legend-item legend-item--municipality">
+            <span class="legend-swatch"></span>
+            <span>Municipality</span>
+          </div>
+          <div class="legend-item legend-item--marker">
+            <span class="legend-pin">📍</span>
+            <span>County Landmark</span>
+          </div>
+          <span class="legend-divider">|</span>
+          <span class="legend-hint">Click any area to view events</span>
+        </div>
+      </div>
+
+      <!-- Right: Details Section -->
+      <div class="details-section">
+        <div class="details-inner">
+
+          <div class="municipality-header">
+            <h2 id="municipality-title" class="municipality-title">Select a Municipality</h2>
+            <a
+              id="municipality-website-link"
+              class="municipality-website-link"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="display: none;"
+            >Visit Official Website →</a>
+          </div>
+
+          <div class="events-section">
+            <div class="events-label" id="events-label" hidden>
+              <span class="events-label-text">Upcoming Events</span>
+              <span class="events-label-count" id="events-count"></span>
+            </div>
+            <div id="municipality-event-tiles" class="municipality-event-tiles"></div>
+            <div id="municipality-empty-state" class="municipality-empty-state" hidden>
+              <div class="empty-icon">📅</div>
+              <p class="empty-message" id="empty-message">No upcoming events found.</p>
+              <p class="empty-sub">Check back soon or visit the official website for local announcements.</p>
+            </div>
+          </div>
+
+          <div class="details-placeholder" id="details-placeholder">
+            <div class="placeholder-map-icon">🗺️</div>
+            <p>Click any municipality on the map to see upcoming events and information.</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <div id="tile-modal-placeholder"></div>
+
+  <script type="module" src="./municipalities.js"></script>
+  <script src="../../tile/tile-modal.js"></script>
+</body>
+</html>
