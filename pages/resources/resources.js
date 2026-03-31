@@ -109,11 +109,21 @@ function removeAppliedFilter(id) {
    CATEGORY FILTER MAP
 ================================ */
 const CATEGORY_MAP = {
-  education:  (e) => Object.values(e.education).some(Boolean),
-  age:        (e) => Object.values(e.age).some(Boolean),
-  recreation: (e) => Object.values(e.recreation).some(Boolean),
-  hotlines:   (e) => Object.values(e.hotlines).some(Boolean),
-  local:      (e) => Object.values(e.localBusinesses).some(Boolean),
+  education:       e => Object.values(e.education).some(Boolean),
+  recreation:      e => Object.values(e.recreation).some(Boolean),
+  hotlines:        e => Object.values(e.hotlines).some(Boolean),
+  localBusinesses: e => Object.values(e.localBusinesses).some(Boolean),
+
+  // Top-level category string matches
+  arts:        e => e.category?.toLowerCase() === 'arts',
+  sports:      e => e.category?.toLowerCase() === 'sports',
+  community:   e => e.category?.toLowerCase() === 'community',
+  government:  e => e.category?.toLowerCase() === 'government',
+
+  // Recreation sub-filters
+  music:       e => e.recreation?.music,
+  visualArt:   e => e.recreation?.visualArt,
+  stem:        e => e.recreation?.stem,
 };
 
 const activeCategoryFilters = new Set();
@@ -272,7 +282,9 @@ function matchesFilter(event, filterId) {
 
 function filterEvents(query) {
   const lowerQuery = query.toLowerCase();
+
   return events.filter(event => {
+    // 1. Text search
     const eventData = `
       ${event.title}
       ${event.description}
@@ -280,18 +292,23 @@ function filterEvents(query) {
       ${event.location}
       ${event.type || ''}
     `.toLowerCase();
-    if (!eventData.includes(lowerQuery)) return false;
+    if (lowerQuery && !eventData.includes(lowerQuery)) return false;
 
-    // 2. Match all active filters
+    // 2. Age / type filters (AND logic — must match all active)
     for (let filterId of activeFilters) {
       if (!matchesFilter(event, filterId)) return false;
     }
 
-    // 3. Category filters (OR logic — event must match at least one true field)
+    // 3. Category filters (OR logic — must match at least one)
     if (activeCategoryFilters.size > 0) {
-      const matchesAnyCategory = [...activeCategoryFilters].some(cat =>
-        CATEGORY_MAP[cat](event)
-      );
+      const matchesAnyCategory = [...activeCategoryFilters].some(cat => {
+        const checker = CATEGORY_MAP[cat];
+        if (!checker) return false;
+
+        // Also fall back to checking the top-level category string
+        const matchesTopLevel = event.category?.toLowerCase().includes(cat.toLowerCase());
+        return checker(event) || matchesTopLevel;
+      });
       if (!matchesAnyCategory) return false;
     }
 
