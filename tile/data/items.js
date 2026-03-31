@@ -219,7 +219,7 @@ export const ITEMS = [
     location: "Union County Arts Center",
     municipality: "elizabeth",
     category: "Arts",
-    image: "/images/hero3.jpg",
+    image: "/images/winter-art-exhibit.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -261,7 +261,7 @@ export const ITEMS = [
     location: "Cranford Public Library",
     municipality: "cranford",
     category: "Arts",
-    image: "/images/hero1.jpg",
+    image: "/images/poetry-open-mic.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -303,7 +303,7 @@ export const ITEMS = [
     location: "County Administration Building",
     municipality: "elizabeth",
     category: "Government",
-    image: "/images/hero2.jpg",
+    image: "/images/town-hall-meeting.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -345,7 +345,7 @@ export const ITEMS = [
     location: "Elizabeth Community Center",
     municipality: "elizabeth",
     category: "Health",
-    image: "/images/hero3.jpg",
+    image: "/images/health-wellness-fair.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -387,7 +387,7 @@ export const ITEMS = [
     location: "Westfield Community Center",
     municipality: "westfield",
     category: "Health",
-    image: "/images/hero1.jpg",
+    image: "/images/community-blood-drive.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -429,7 +429,7 @@ export const ITEMS = [
     location: "Linden Public Library",
     municipality: "linden",
     category: "Education",
-    image: "/images/hero2.jpg",
+    image: "/images/teen-coding-workshop.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -471,7 +471,7 @@ export const ITEMS = [
     location: "Warinanco Park",
     municipality: "elizabeth",
     category: "Environment",
-    image: "/images/hero3.jpg",
+    image: "/images/park-cleanup-day.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -513,7 +513,7 @@ export const ITEMS = [
     location: "Scotch Plains Town Square",
     municipality: "scotch-plains",
     category: "Community",
-    image: "/images/hero1.jpg",
+    image: "/images/winter-farmers-market.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -555,7 +555,7 @@ export const ITEMS = [
     location: "Nomahegan Park",
     municipality: "cranford",
     category: "Sports",
-    image: "/images/hero2.jpg",
+    image: "/images/frosty-5k-fun-run.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -597,7 +597,7 @@ export const ITEMS = [
     location: "Springfield Public Library",
     municipality: "springfield",
     category: "Music",
-    image: "/images/hero3.jpg",
+    image: "/images/jazz-at-the-library.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -639,7 +639,7 @@ export const ITEMS = [
     location: "Echo Lake Park",
     municipality: "westfield",
     category: "Music",
-    image: "/images/hero1.jpg",
+    image: "/images/spring-concerts-series.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -681,7 +681,7 @@ export const ITEMS = [
     location: "Clark Community Center",
     municipality: "clark",
     category: "Health",
-    image: "/images/hero2.jpg",
+    image: "/images/senior-yoga-class.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -723,7 +723,7 @@ export const ITEMS = [
     location: "Kean University",
     municipality: "union",
     category: "Education",
-    image: "/images/hero3.jpg",
+    image: "/images/student-stem-fair.jpg",
     education: {
       schools: true,
       summerPrograms: false,
@@ -765,7 +765,7 @@ export const ITEMS = [
     location: "Roselle Park Community Center",
     municipality: "roselle-park",
     category: "Recreation",
-    image: "/images/hero1.jpg",
+    image: "/images/community-trivia-night.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -809,7 +809,7 @@ export const ITEMS = [
     location: "Morris Avenue, Union",
     municipality: "union",
     category: "Community",
-    image: "/images/hero2.jpg",
+    image: "/images/st-patrick's-day-parade.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -851,7 +851,7 @@ export const ITEMS = [
     location: "Trailside Nature Center",
     municipality: "mountainside",
     category: "Education",
-    image: "/images/hero3.jpg",
+    image: "/images/spring-garden-workshop.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -893,7 +893,7 @@ export const ITEMS = [
     location: "Warinanco Park Courts",
     municipality: "elizabeth",
     category: "Sports",
-    image: "/images/hero1.jpg",
+    image: "/images/3-on-3-basketball-tournament.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -935,7 +935,7 @@ export const ITEMS = [
     location: "County Administration Building",
     municipality: "elizabeth",
     category: "Government",
-    image: "/images/hero2.jpg",
+    image: "/images/womens-history-panel.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -977,7 +977,7 @@ export const ITEMS = [
     location: "Oak Ridge Park",
     municipality: "clark",
     category: "Community",
-    image: "/images/hero3.jpg",
+    image: "/images/spring-craft-fair.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -1019,7 +1019,7 @@ export const ITEMS = [
     location: "All County Library Branches",
     municipality: "elizabeth",
     category: "Community",
-    image: "/images/hero1.jpg",
+    image: "/images/county-wide-food-drive.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -1061,7 +1061,7 @@ export const ITEMS = [
     location: "Plainfield Public Library",
     municipality: "plainfield",
     category: "Education",
-    image: "/images/hero2.jpg",
+    image: "/images/tech-talk-cybersecurity.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -1103,7 +1103,7 @@ export const ITEMS = [
     location: "Watchung Reservation",
     municipality: "mountainside",
     category: "Recreation",
-    image: "/images/hero3.jpg",
+    image: "/images/spring-equinox-hike.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -1145,7 +1145,7 @@ export const ITEMS = [
     location: "Cranford Community Center",
     municipality: "cranford",
     category: "Health",
-    image: "/images/hero1.jpg",
+    image: "/images/red-cross-blood-drive.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -1187,7 +1187,7 @@ export const ITEMS = [
     location: "Union County Performing Arts Center",
     municipality: "rahway",
     category: "Arts",
-    image: "/images/hero2.jpg",
+    image: "/images/comedy-night-fundraiser.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -1229,7 +1229,7 @@ export const ITEMS = [
     location: "Nomahegan Park",
     municipality: "cranford",
     category: "Community",
-    image: "/images/hero3.jpg",
+    image: "/images/easter-egg-hunt.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -1273,7 +1273,7 @@ export const ITEMS = [
     location: "Multiple Parks",
     municipality: "elizabeth",
     category: "Environment",
-    image: "/images/hero1.jpg",
+    image: "/images/earth-day-cleanup.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -1315,7 +1315,7 @@ export const ITEMS = [
     location: "Kean University",
     municipality: "union",
     category: "Government",
-    image: "/images/hero2.jpg",
+    image: "/images/spring-career-fair.jpg",
     education: {
       schools: true,
       summerPrograms: false,
@@ -1357,7 +1357,7 @@ export const ITEMS = [
     location: "Mindowaskin Park",
     municipality: "westfield",
     category: "Music",
-    image: "/images/hero3.jpg",
+    image: "/images/union-county-jazz-festival.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -1399,7 +1399,7 @@ export const ITEMS = [
     location: "Cedar Brook Park",
     municipality: "clark",
     category: "Recreation",
-    image: "/images/hero1.jpg",
+    image: "/images/bike-safety-rodeo.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -1441,7 +1441,7 @@ export const ITEMS = [
     location: "Rahway River Park",
     municipality: "rahway",
     category: "Environment",
-    image: "/images/hero2.jpg",
+    image: "/images/arbor-day-tree-planting.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -1483,7 +1483,7 @@ export const ITEMS = [
     location: "L'Affaire Banquet Hall",
     municipality: "elizabeth",
     category: "Community",
-    image: "/images/hero3.jpg",
+    image: "/images/senior-citizens-prom.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -1525,7 +1525,7 @@ export const ITEMS = [
     location: "Downtown Westfield",
     municipality: "westfield",
     category: "Arts",
-    image: "/images/hero1.jpg",
+    image: "/images/downtown-art-walk.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -1567,7 +1567,7 @@ export const ITEMS = [
     location: "Unami Park",
     municipality: "scotch-plains",
     category: "Sports",
-    image: "/images/hero2.jpg",
+    image: "/images/youth-soccer-league-kickoff.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -1609,7 +1609,7 @@ export const ITEMS = [
     location: "Union County Performing Arts Center",
     municipality: "rahway",
     category: "Arts",
-    image: "/images/hero3.jpg",
+    image: "/images/short-film-festival.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -1651,7 +1651,7 @@ export const ITEMS = [
     location: "Echo Lake Park",
     municipality: "westfield",
     category: "Recreation",
-    image: "/images/hero1.jpg",
+    image: "/images/kids-fishing-derby.jpg",
     education: {
       schools: false,
       summerPrograms: false,
@@ -1693,7 +1693,7 @@ export const ITEMS = [
     location: "Westfield High School Auditorium",
     municipality: "westfield",
     category: "Music",
-    image: "/images/hero2.jpg",
+    image: "/images/spring-choral-concert.jpg",
     education: {
       schools: true,
       summerPrograms: false,
@@ -1742,7 +1742,7 @@ export const ITEMS = [
   location: "Mountainside, NJ",
   municipality: "mountainside",
   category: "Recreation",
-  image: "/images/watchung.jpg",
+  image: "/images/watchung-reservation.jpg",
   education: {
     schools: false,
     summerPrograms: false,
@@ -1784,7 +1784,7 @@ export const ITEMS = [
   location: "Mountainside, NJ",
   municipality: "mountainside",
   category: "Education",
-  image: "/images/trailside.jpg",
+  image: "",
   education: {
     schools: true,
     summerPrograms: true,
