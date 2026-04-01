@@ -7,6 +7,9 @@
 }
 
 .contact-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background: #F2E8DD;
   padding: 40px 40px 80px;
   min-height: 100vh;
@@ -41,12 +44,13 @@
 
 .accent-link {
   display: flex;
-  justify-self: center;
+  justify-content: center;
   text-align: center;
   color: #003366;
   font-weight: 700;
   font-size: 1.1rem;
-  max-width: 600px;
+  max-width: 100%;
+  padding: 0px 3vw 0 3vw;
   margin-bottom: 4%;
 }
 
@@ -150,13 +154,14 @@
     display: none;
     margin-top: 2%;
     background: #c0392b;
-    justify-self: center;
+    justify-content: center;
     color: #ffffff;
     text-align: center;
     padding: 12px 20px;
     font-size: 15px;
     font-weight: 500;
     width: 25%;
+    margin-left: 37.5vw;
     box-sizing: border-box;
     position: sticky;
     top: 0;
