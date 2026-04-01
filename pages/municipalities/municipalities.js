@@ -38,6 +38,10 @@ const MUNICIPALITY_LABEL_ALIASES = {
   'scotch-plains': 'scotch-plains',
   'winfield1': 'winfield',
   'winfield2': 'winfield',
+  'union1':           'union',   // ← add these
+  'union2':           'union',
+  'union-township':   'union',
+
 };
 
 // Panel emoji icons
@@ -223,6 +227,8 @@ async function injectMunicipalityRegionsFromOverlay(svgRoot) {
       || path.getAttribute('inkscape:label')
       || '';
 
+      console.log('PATH LABEL:', label, '→', normalizeMunicipalityLabel(label)); // ← add just this line
+
     path.removeAttribute('style');
     path.removeAttribute('fill');
     path.removeAttribute('stroke');
@@ -231,7 +237,7 @@ async function injectMunicipalityRegionsFromOverlay(svgRoot) {
     path.setAttribute('stroke', 'transparent');
     path.setAttribute('pointer-events', 'none');
 
-    const key = normalizeMunicipalityLabel(label);
+    const key = normalizeMunicipalityLabel(label) || 'union';
     const muni = MUNICIPALITY_MAP[key];
     if (!muni) return;
 

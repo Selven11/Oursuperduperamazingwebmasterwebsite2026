@@ -57,8 +57,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.25rem;
+  flex-direction: column;
   --map-shell-pad: 1.25rem;
+}
+
+.map-inner {
+  position: relative;
+  width: calc(100% - calc(var(--map-shell-pad) * 2));
+  height: calc(100% - calc(var(--map-shell-pad) * 2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .county-map-image {
@@ -78,12 +87,9 @@
 /* The SVG sits exactly on top of the image */
 .map-overlay {
   position: absolute;
-  top: var(--map-shell-pad);
-  left: var(--map-shell-pad);
-  right: var(--map-shell-pad);
-  bottom: var(--map-shell-pad);
-  width: auto;
-  height: auto;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   overflow: visible;
   pointer-events: none;
 }
@@ -199,6 +205,7 @@
   border-top: 1px solid var(--color-border, #e0e0e0);
   font-size: 0.78rem;
   color: var(--color-text-muted, #666);
+  width: 100%;
   flex-wrap: wrap;
 }
 

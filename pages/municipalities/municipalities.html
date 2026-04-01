@@ -25,48 +25,50 @@
       <!-- Left: Map -->
       <div class="map-section">
         <div class="map-shell">
-          <!--
-            Base map image with municipal boundaries.
-            The transparent interactive municipality paths are loaded from a second SVG layer.
-          -->
-          <img
-            id="union-county-map"
-            src="/images/unioncountymunicipalities.png"
-            alt="Union County Municipality Map"
-            class="county-map-image"
-          >
+          <div class="map-inner">
+            <!--
+              Base map image with municipal boundaries.
+              The transparent interactive municipality paths are loaded from a second SVG layer.
+            -->
+            <img
+              id="union-county-map"
+              src="/images/unioncountymunicipalities.png"
+              alt="Union County Municipality Map"
+              class="county-map-image"
+            >
 
-          <!-- Hit-test + pin overlay — viewBox matches the SVG map's coordinate space -->
-          <svg
-            id="map-overlay"
-            class="map-overlay"
-            viewBox="0 0 1088 757.33331"
-            preserveAspectRatio="xMidYMid meet"
-            aria-label="Interactive Union County map"
-            role="img"
-          >
-            <!-- Municipality regions and landmark pins injected by municipalities.js -->
-          </svg>
+            <!-- Hit-test + pin overlay — viewBox matches the SVG map's coordinate space -->
+            <svg
+              id="map-overlay"
+              class="map-overlay"
+              viewBox="0 0 1088 757.33331"
+              preserveAspectRatio="xMidYMid meet"
+              aria-label="Interactive Union County map"
+              role="img"
+            >
+              <!-- Municipality regions and landmark pins injected by municipalities.js -->
+            </svg>
 
-          <!-- Landmark tooltip -->
-          <div id="marker-tooltip" class="marker-tooltip" hidden>
-            <div class="marker-tooltip-title"></div>
-            <div class="marker-tooltip-desc"></div>
-            <a class="marker-tooltip-link" href="#" target="_blank" rel="noopener noreferrer">Learn more →</a>
+            <!-- Landmark tooltip -->
+            <div id="marker-tooltip" class="marker-tooltip" hidden>
+              <div class="marker-tooltip-title"></div>
+              <div class="marker-tooltip-desc"></div>
+              <a class="marker-tooltip-link" href="#" target="_blank" rel="noopener noreferrer">Learn more →</a>
+            </div>
           </div>
-        </div>
 
-        <div class="map-legend">
-          <div class="legend-item">
-            <span class="legend-swatch"></span>
-            <span>Municipality</span>
+          <div class="map-legend">
+            <div class="legend-item">
+              <span class="legend-swatch"></span>
+              <span>Municipality</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-pin">📍</span>
+              <span>County Landmark</span>
+            </div>
+            <span class="legend-divider">|</span>
+            <span class="legend-hint">Click any area to view events</span>
           </div>
-          <div class="legend-item">
-            <span class="legend-pin">📍</span>
-            <span>County Landmark</span>
-          </div>
-          <span class="legend-divider">|</span>
-          <span class="legend-hint">Click any area to view events</span>
         </div>
       </div>
 
