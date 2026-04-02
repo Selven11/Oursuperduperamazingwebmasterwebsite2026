@@ -34,14 +34,19 @@ function matchesTimeSlider(dateStr, sliderVal) {
   }
 }
 
-function filterItems(ageVal, timeVal) {
+function filterEventsByTime(ageVal, timeVal) {
   const key = AGE_STEPS[sliderIndex(ageVal)].key;
-  return ITEMS.filter(item => item.age?.[key] && matchesTimeSlider(item.date, timeVal));
+  return ITEMS.filter(item => item.type === "event" && item.age?.[key] && matchesTimeSlider(item.date, timeVal));
 }
 
-function filterItemsByAge(ageVal) {
+function filterEventsByAge(ageVal) {
   const key = AGE_STEPS[sliderIndex(ageVal)].key;
-  return ITEMS.filter(item => item.age?.[key]);
+  return ITEMS.filter(item => item.type === "event" && item.age?.[key]);
+}
+
+function filterLocationsByAge(ageVal) {
+  const key = AGE_STEPS[sliderIndex(ageVal)].key;
+  return ITEMS.filter(item => item.type === "location" && item.age?.[key]);
 }
 
 // ── State ─────────────────────────────────────────────────────────────────────
@@ -193,11 +198,18 @@ export function initGenerate() {
 
     const ageVal  = parseInt(ageSlider.value,  10);
     const timeVal = parseInt(timeSlider.value, 10);
-    let matched = filterItems(ageVal, timeVal);
-    if (matched.length === 0) matched = filterItemsByAge(ageVal);
+    
+    // First, try to find events matching both age and time restrictions
+    let matched = filterEventsByTime(ageVal, timeVal);
+    
+    // If no events match time restrictions, try any event matching age
+    if (matched.length === 0) matched = filterEventsByAge(ageVal);
+    
+    // If still no events, fall back to locations matching age
+    if (matched.length === 0) matched = filterLocationsByAge(ageVal);
 
     if (matched.length === 0) {
-      showError('No events match those filters. Try a different age or time range!');
+      showError('No events or locations match those filters. Try a different age or time range!');
       return;
     }
 
