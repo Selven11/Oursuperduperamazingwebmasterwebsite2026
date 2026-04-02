@@ -105,21 +105,89 @@ nav {
   list-style: none;
 }
 
-.nav-links a {
+.nav-links > li {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a,
+.nav-dropdown-toggle {
   color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 600;
+  line-height: 1.2;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   padding: 8px 16px;
   border-radius: 4px;
   transition: background 0.2s, color 0.2s;
+  font-family: inherit;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a:focus-visible,
+.nav-dropdown-toggle:hover,
+.nav-dropdown-toggle:focus-visible {
   background: rgba(255, 255, 255, 0.12);
   color: var(--gold);
+}
+
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-toggle {
+  background: transparent;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.nav-dropdown-toggle::after {
+  content: "\25BE";
+  font-size: 0.65rem;
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 260px;
+  list-style: none;
+  background: rgba(13, 43, 85, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+  display: none;
+  z-index: 110;
+}
+
+.nav-dropdown-menu li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.nav-dropdown-menu li:last-child {
+  border-bottom: none;
+}
+
+.nav-dropdown-menu a {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 0;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-size: 0.86rem;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu,
+.nav-dropdown.is-open .nav-dropdown-menu {
+  display: block;
 }
 
 .nav-toggle {
@@ -479,5 +547,35 @@ footer {
     border-radius: 0;
     font-size: 0.8rem;
     letter-spacing: 0.07em;
+  }
+
+  .nav-dropdown {
+    width: 100%;
+  }
+
+  .nav-dropdown-toggle {
+    display: block;
+    width: 100%;
+    text-align: left;
+    border-radius: 0;
+    padding: 10px 20px;
+    font-size: 0.8rem;
+    letter-spacing: 0.07em;
+  }
+
+  .nav-dropdown-menu {
+    position: static;
+    min-width: 100%;
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0;
+    box-shadow: none;
+    background: rgba(0, 0, 0, 0.14);
+  }
+
+  .nav-dropdown-menu a {
+    padding: 10px 30px;
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
   }
 }
