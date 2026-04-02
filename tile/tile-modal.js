@@ -235,13 +235,7 @@ function populateMainContent(data) {
     main.appendChild(section);
   }
 
-  if (data.link || data.url) {
-    const section = createEl('div', 'tile-modal-section');
-    const btn = createLink('Learn More →', data.link || data.url, { newTab: true });
-    btn.className = 'tile-modal-cta-button';
-    section.appendChild(btn);
-    main.appendChild(section);
-  }
+
 }
 
 /**

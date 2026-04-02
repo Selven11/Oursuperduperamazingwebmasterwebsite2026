@@ -204,7 +204,7 @@ function createEventListItem(event) {
 
         <div class="tile-footer">
           <span class="tile-location">${event.location ? `📍 ${event.location}` : ''}</span>
-          <a class="tile-link" href="${event.link || '#'}">Learn More →</a>
+          <div class="tile-link" href="${event.link || '#'}">Learn More →</div>
         </div>
       </div>
     </div>
