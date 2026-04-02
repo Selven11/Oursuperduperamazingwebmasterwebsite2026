@@ -4,7 +4,7 @@ import { renderTile } from '/tile/tile.js';
 const TILE_WIDTH   = 300;
 const TILE_GAP     = 20;
 const TILE_STEP    = TILE_WIDTH + TILE_GAP;
-const SPIN_DURATION = 3500;
+const SPIN_DURATION = 2800;
 
 const AGE_STEPS = [
   { label: 'Youth',       key: 'youth'   },
@@ -52,10 +52,13 @@ function filterLocationsByAge(ageVal) {
 // ── State ─────────────────────────────────────────────────────────────────────
 
 let track       = null;
+let viewportEl  = null;
 let offset      = 0;      // current translateX (positive px we've scrolled)
 let rafId       = null;
 let isSpinning  = false;
 let spinCooldown = false; // Prevent rapid consecutive spins
+let lastWinnerTile = null;
+const preloadedSources = new Set();
 const LOOP_LEN  = () => ITEMS.length * TILE_STEP;
 
 // ── Track ─────────────────────────────────────────────────────────────────────
@@ -64,6 +67,8 @@ function buildTrack() {
   track = document.createElement('div');
   track.id = 'roulette-track';
   track.style.willChange = 'transform'; // Hint to browser for animation optimization
+  track.style.backfaceVisibility = 'hidden';
+  track.style.transform = `translate3d(-${offset}px, 0, 0)`;
 
   // 3 copies is enough — we'll always reset offset after landing
   for (let c = 0; c < 3; c++) {
@@ -72,7 +77,16 @@ function buildTrack() {
       wrapper.className = 'roulette-tile';
       wrapper.dataset.itemIndex = i;
       wrapper.dataset.copy = c;
-      wrapper.appendChild(renderTile(item));
+      const tileCard = renderTile(item);
+
+      const img = tileCard.querySelector('img');
+      if (img) {
+        img.decoding = 'async';
+        img.loading = c === 1 ? 'eager' : 'lazy';
+        img.fetchPriority = c === 1 ? 'high' : 'low';
+      }
+
+      wrapper.appendChild(tileCard);
       track.appendChild(wrapper);
     });
   }
@@ -81,7 +95,7 @@ function buildTrack() {
 
 function setOffset(px) {
   offset = px;
-  track.style.transform = `translateX(-${px}px)`;
+  track.style.transform = `translate3d(-${px}px, 0, 0)`;
 }
 
 // ── Passive drift (rAF, no CSS animation) ────────────────────────────────────
@@ -95,8 +109,7 @@ function startDrift() {
     const dt = ts - last; last = ts;
 
     // 40 px/s drift, always forward, wrap within one loop
-    offset = (offset + dt * 0.04) % LOOP_LEN();
-    track.style.transform = `translateX(-${offset}px)`;
+    setOffset((offset + dt * 0.04) % LOOP_LEN());
     rafId = requestAnimationFrame(tick);
   }
   rafId = requestAnimationFrame(tick);
@@ -111,11 +124,14 @@ function stopDrift() {
 function spinAndLand(winnerIndex, onDone) {
   stopDrift();
   isSpinning = true;
+  track.classList.add('is-spinning');
+  viewportEl?.classList.add('is-spinning');
 
   // Clear any previous winner
-  track.querySelectorAll('.roulette-winner').forEach(el =>
-    el.classList.remove('roulette-winner')
-  );
+  if (lastWinnerTile) {
+    lastWinnerTile.classList.remove('roulette-winner');
+    lastWinnerTile = null;
+  }
 
   const viewport      = document.getElementById('roulette-viewport');
   const viewportWidth = viewport?.offsetWidth || 800;
@@ -127,41 +143,49 @@ function spinAndLand(winnerIndex, onDone) {
 
   // Spin at least one full loop past current offset before landing
   // Add extra loops so it always feels like a real spin
-  const minSpinDistance = LOOP_LEN() * 2;
+  const minSpinDistance = LOOP_LEN() * 1.5;
   let targetOffset = landingPos;
   while (targetOffset < offset + minSpinDistance) {
     targetOffset += LOOP_LEN();
   }
 
-  // Disable transition, snap to current offset (no jump)
+  // Disable transition and snap to current offset (no jump).
+  // We intentionally avoid forced reflow here; double-rAF starts the next
+  // transition on a clean frame and prevents click-time layout jank.
   track.style.transition = 'none';
-  track.style.transform  = `translateX(-${offset}px)`;
-  void track.offsetWidth; // reflow
-
-  // Apply spin transition
-  track.style.transition = `transform ${SPIN_DURATION}ms cubic-bezier(0.12, 0, 0.2, 1)`;
-  track.style.transform  = `translateX(-${targetOffset}px)`;
+  setOffset(offset);
 
   track.addEventListener('transitionend', () => {
-    offset = targetOffset % LOOP_LEN(); // normalize so we never drift to huge numbers
+    setOffset(targetOffset % LOOP_LEN()); // normalize so we never drift to huge numbers
     track.style.transition = 'none';
-    track.style.transform  = `translateX(-${offset}px)`;
 
     // After normalizing to one loop, copy 0 is the visible canonical target.
     const toHighlight = track.querySelector(
       `.roulette-tile[data-item-index="${winnerIndex}"][data-copy="0"]`
     );
 
-    if (toHighlight) toHighlight.classList.add('roulette-winner');
+    if (toHighlight) {
+      toHighlight.classList.add('roulette-winner');
+      lastWinnerTile = toHighlight;
+    }
 
     isSpinning = false;
     spinCooldown = true;
+    track.classList.remove('is-spinning');
+    viewportEl?.classList.remove('is-spinning');
     
     // Give browser time to render before allowing next spin
     setTimeout(() => { spinCooldown = false; }, 400);
     
     onDone?.();
   }, { once: true });
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      track.style.transition = `transform ${SPIN_DURATION}ms cubic-bezier(0.12, 0, 0.2, 1)`;
+      setOffset(targetOffset);
+    });
+  });
 }
 
 // ── Error ─────────────────────────────────────────────────────────────────────
@@ -182,18 +206,52 @@ function clearError() {
 
 // ── Image Preloading ──────────────────────────────────────────────────────────
 
-function preloadImages() {
-  // Preload ALL images to prevent jank during multiple spins
-  ITEMS.forEach(item => {
-    const img = new Image();
-    img.src = item.image || 'images/hero1.jpg';
+function preloadImage(src) {
+  if (!src || preloadedSources.has(src)) return;
+
+  const img = new Image();
+  img.decoding = 'async';
+  img.loading = 'eager';
+  img.src = src;
+  preloadedSources.add(src);
+}
+
+function preloadInitialImages(limit = 14) {
+  ITEMS.slice(0, limit).forEach(item => {
+    preloadImage(item.image || '/images/hero1.jpg');
   });
+}
+
+function preloadRemainingImages(startIndex = 14) {
+  let nextIndex = startIndex;
+
+  const pump = (deadline) => {
+    while (nextIndex < ITEMS.length && (!deadline || deadline.timeRemaining() > 3)) {
+      preloadImage(ITEMS[nextIndex].image || '/images/hero1.jpg');
+      nextIndex++;
+    }
+
+    if (nextIndex < ITEMS.length) {
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(pump, { timeout: 450 });
+      } else {
+        setTimeout(() => pump(null), 120);
+      }
+    }
+  };
+
+  if ('requestIdleCallback' in window) {
+    window.requestIdleCallback(pump, { timeout: 450 });
+  } else {
+    setTimeout(() => pump(null), 120);
+  }
 }
 
 // ── Init ──────────────────────────────────────────────────────────────────────
 
 export function initGenerate() {
-  preloadImages();
+  preloadInitialImages();
+  preloadRemainingImages();
   const ageSlider   = document.getElementById('age');
   const timeSlider  = document.getElementById('time');
   const generateBtn = document.getElementById('generatebtn');
@@ -202,11 +260,11 @@ export function initGenerate() {
   if (!ageSlider || !timeSlider || !generateBtn || !container) return;
 
   // Build viewport + track once
-  const viewport = document.createElement('div');
-  viewport.id = 'roulette-viewport';
+  viewportEl = document.createElement('div');
+  viewportEl.id = 'roulette-viewport';
   container.innerHTML = '';
-  container.appendChild(viewport);
-  viewport.appendChild(buildTrack());
+  container.appendChild(viewportEl);
+  viewportEl.appendChild(buildTrack());
 
   startDrift();
 
