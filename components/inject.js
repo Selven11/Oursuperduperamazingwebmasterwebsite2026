@@ -50,13 +50,28 @@ async function quickLinksDropdown() {
 
   quickLinksToggle.addEventListener('click', event => {
     event.stopPropagation();
-    const isOpen = quickLinksDropdown.classList.toggle('is-open');
-    quickLinksToggle.setAttribute('aria-expanded', String(isOpen));
+    const isOpen = quickLinksDropdown.classList.contains('is-open');
+
+    if (isOpen) {
+      quickLinksDropdown.classList.remove('is-open');
+      quickLinksDropdown.classList.add('is-force-closed');
+      quickLinksToggle.setAttribute('aria-expanded', 'false');
+      return;
+    }
+
+    quickLinksDropdown.classList.remove('is-force-closed');
+    quickLinksDropdown.classList.add('is-open');
+    quickLinksToggle.setAttribute('aria-expanded', 'true');
+  });
+
+  quickLinksDropdown.addEventListener('mouseleave', () => {
+    quickLinksDropdown.classList.remove('is-force-closed');
   });
 
   quickLinksDropdown.querySelectorAll('.nav-dropdown-menu a').forEach(link => {
     link.addEventListener('click', () => {
       quickLinksDropdown.classList.remove('is-open');
+      quickLinksDropdown.classList.remove('is-force-closed');
       quickLinksToggle.setAttribute('aria-expanded', 'false');
     });
   });
@@ -64,6 +79,7 @@ async function quickLinksDropdown() {
   document.addEventListener('click', event => {
     if (!quickLinksDropdown.contains(event.target)) {
       quickLinksDropdown.classList.remove('is-open');
+      quickLinksDropdown.classList.remove('is-force-closed');
       quickLinksToggle.setAttribute('aria-expanded', 'false');
     }
   });

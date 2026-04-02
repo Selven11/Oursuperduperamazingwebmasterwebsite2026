@@ -153,7 +153,7 @@ nav {
 
 .nav-dropdown-menu {
   position: absolute;
-  top: calc(100% + 8px);
+  top: 100%;
   right: 0;
   min-width: 260px;
   list-style: none;
@@ -184,8 +184,8 @@ nav {
   font-size: 0.86rem;
 }
 
-.nav-dropdown:hover .nav-dropdown-menu,
-.nav-dropdown:focus-within .nav-dropdown-menu,
+.nav-dropdown:not(.is-force-closed):hover .nav-dropdown-menu,
+.nav-dropdown:not(.is-force-closed):focus-within .nav-dropdown-menu,
 .nav-dropdown.is-open .nav-dropdown-menu {
   display: block;
 }
